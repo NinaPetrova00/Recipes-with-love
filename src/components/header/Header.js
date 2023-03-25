@@ -1,11 +1,11 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Header = () => {
     return (
@@ -16,7 +16,7 @@ export const Header = () => {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link href="#action1">Home</Nav.Link>
+                    <Nav.Link href="/">Home</Nav.Link>
                     <NavDropdown title="Recipes" id="navbarScrollingDropdown">
                         <NavDropdown.Item href="#action3">Vegan</NavDropdown.Item>
                         <NavDropdown.Item href="#action3">Vegetarian</NavDropdown.Item>
@@ -26,7 +26,7 @@ export const Header = () => {
                         <NavDropdown.Item href="#action4">Lactose free</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action5">
-                          Regular recipes
+                            Regular recipes
                         </NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="Meal Type" id="navbarScrollingDropdown">
@@ -44,8 +44,8 @@ export const Header = () => {
                         <NavDropdown.Item href="#action3">Register</NavDropdown.Item>
                     </NavDropdown> */}
                     <div style={{ 'padding-left': '650px', 'display': 'flex' }}>
-                        <Nav.Link href="#action2">Register</Nav.Link>
-                        <Nav.Link href="#action2">Login</Nav.Link>
+                        <Nav.Link href="/register">Register</Nav.Link>
+                        <Nav.Link href="/login">Login</Nav.Link>
                         <Nav.Link href="#action2" disabled>Logout</Nav.Link>
                     </div>
                     <Nav.Link href="#" disabled>Add recipe</Nav.Link>

@@ -1,4 +1,4 @@
-import styles from './RecipeItem.module.css';
+import styles from './CatalogueItem.module.css';
 
 export const RecipeItem = () => {
     return (

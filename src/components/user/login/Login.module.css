@@ -1,4 +1,4 @@
-form {
+.userForm {
     padding-top: 20px;
 }
 
@@ -16,7 +16,9 @@ form {
     font-family: 'Alkatra';
 }
 
-input {
+.container .email,
+.container .password,
+.container .repeatPassword{
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -25,25 +27,21 @@ input {
   background: #f1f1f1;
 }
 
-button {
+.loginbtn {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin-left: 95px;
+  border-radius: 15px;
   border: none;
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
-}
-
-button:hover {
-  opacity:1;
-}
-
-.loginbtn {
   float: left;
   width: 50%;
-  margin-left: 95px;
-  border-radius: 15px;
   font-size: 18px;
 }
+
+.loginbtn:hover {
+    opacity:1;
+  }

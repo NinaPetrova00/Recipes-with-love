@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <Header></Header>
-      {/* <Login></Login> */}
+    {/* <Login></Login> */}
       <Register></Register>
        {/* <Home></Home>  */}
       {/* <CatalogueItem></CatalogueItem> */}

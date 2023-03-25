@@ -26,7 +26,7 @@ export const Header = () => {
                         <NavDropdown.Item href="#action4">Lactose free</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action5">
-                            Something else here
+                          Regular recipes
                         </NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="Meal Type" id="navbarScrollingDropdown">

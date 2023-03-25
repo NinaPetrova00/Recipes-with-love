@@ -2,14 +2,14 @@
 //import './App.css';
 import { Header } from './components/header/Header';
 import { Home } from './components/home/Home';
-import { RecipeItem } from './components/recipes/catalogue-item/CatalogueItem';
+import { CatalogueItem } from './components/recipes/catalogue/catalogue-item/CatalogueItem';
 
 function App() {
   return (
     <div>
       <Header></Header>
       {/* <Home></Home> */}
-      <RecipeItem></RecipeItem>
+      <CatalogueItem></CatalogueItem>
     </div>
   );
 }

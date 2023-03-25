@@ -1,25 +1,39 @@
-.item{
+.item {
   margin: auto;
   width: 30%;
-  border: 3px solid rgb(53, 0, 128);
+  border: 3px solid #9679694d;
   padding: 10px;
   text-align: center;
-  background-color: hsl(0deg 0% 93.33%);
+  background-color: #f8f9fa;
 }
 
-.item h4{
-    font-family: 'Alkatra';
+.item h4 {
+  font-family: 'Alkatra';
+  margin: 12px;
 }
 
-.item img{
-    width: 350px;
-    height: 350px;
+.item img {
+  width: 350px;
+  height: 350px;
 }
 
-.catalogue{
+.catalogue {
   display: flex;
-    align-content: space-between;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+  align-content: space-between;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.catalogue .detailsDiv {
+  padding: 15px;
+  font-family: 'Alkatra';
+  font-size: 20px;
+}
+
+.catalogue .detailsBtn {
+  border-radius: 10%;
+  padding: 7px 14px;
+  background-color: #9679694d;
 }

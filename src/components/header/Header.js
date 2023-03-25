@@ -18,7 +18,7 @@ export const Header = () => {
                 >
                     <Nav.Link href="/">Home</Nav.Link>
                     <NavDropdown title="Recipes" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Vegan</NavDropdown.Item>
+                        <NavDropdown.Item href="/catalogue">Vegan</NavDropdown.Item>
                         <NavDropdown.Item href="#action3">Vegetarian</NavDropdown.Item>
                         <NavDropdown.Item href="#action4">High protein</NavDropdown.Item>
                         <NavDropdown.Item href="#action4">Low sugar</NavDropdown.Item>

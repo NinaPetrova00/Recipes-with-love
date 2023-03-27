@@ -1,0 +1,46 @@
+.detailsItemContainer {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.detailsItemContainer {
+    font-family: 'Alkatra';
+    font-size: 26px;
+}
+
+.detailsItemContainer .detailsImg {
+    width: 275px;
+    height: 260px;
+    border-radius: 10%;
+    margin-bottom: 15px;
+}
+
+.detailsItemContainer .ingredientsContainer {
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+
+
+.detailsItemContainer .ingredientsContainer ul {
+    list-style: none;
+    font-size: 20px;
+    display: inline-block;
+    text-align: left;
+}
+
+.detailsItemContainer .howToContainer {
+    font-size: 20px;
+    padding-top: 25px;
+}
+
+.detailsItemContainer .howToContainer ul{
+    list-style:decimal;
+    font-size: 20px;
+    text-align: left;
+    display: inline-block;
+}
+
+.detailsItemContainer .howToContainer ul li{
+    padding: 15px;
+}

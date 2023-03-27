@@ -4,14 +4,14 @@ export const Details = () => {
     return (
         <>
             <div className={styles.detailsItemContainer}>
-                <h2>Vegan panckaes</h2>
+                <h2>Vegan pancakes</h2>
                 <img className={styles.detailsImg} src="./images/pancakes.jpg" alt="" />
                 <h3>Cooking time: 40min</h3>
             </div >
 
             <div className={styles.recipeContainer}>
                 <div className={styles.ingredientsContainer}>
-                    <h2>Ingredients:</h2>
+                    <h3>Ingredients:</h3>
                     <ul>
                         <li>300g self-raising flour
                             <li> 1 tsp baking powder</li>
@@ -38,6 +38,19 @@ export const Details = () => {
                         </li>
                     </ul>
                 </div>
+            </div>
+
+            <div className={styles.comments}>
+                <h3>Customers' comments:</h3>
+                <ul>
+                    <li>
+                        <h5>Nikol</h5>
+                        <p>Very good recipe!</p> </li>
+                    <li>
+                        <h5>Maria</h5>
+                      <p>Easy and delicious!</p>
+                    </li>
+                </ul>
             </div>
         </>
     );

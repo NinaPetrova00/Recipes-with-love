@@ -1,4 +1,4 @@
-import styles from './CatalogueItem.module.css';
+import styles from '../catalogue-item/CatalogueItem.module.css';
 
 export const CatalogueItem = () => {
     return (

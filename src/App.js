@@ -2,11 +2,11 @@ import { Route, Routes } from 'react-router-dom';
 
 import { Header } from './components/header/Header';
 import { Home } from './components/home/Home';
-import { CatalogueItem } from './components/recipes/catalogue/catalogue-item/CatalogueItem';
+import { CatalogueItem } from './components/recipes/catalogue-item/CatalogueItem';
 import { Catalogue } from './components/recipes/catalogue/Catalogue';
 import { Login } from './components/user/login/Login';
 import { Register } from './components/user/register/Register';
-import { Details } from './components/recipes/catalogue/details/Details';
+import { Details } from './components/recipes/details/Details';
 import './App.css';
 function App() {
   return (

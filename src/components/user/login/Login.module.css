@@ -3,7 +3,7 @@
 }
 
 .container {
-    background: #4b9ac452;
+    background-color: #4b9ac452;
     border-radius: 15px;
     text-align: center;
     padding: 35px 30px;
@@ -24,7 +24,7 @@
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
-  background: #f1f1f1;
+  background-color: #f1f1f1;
 }
 
 .loginbtn {

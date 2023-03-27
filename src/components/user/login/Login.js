@@ -6,10 +6,10 @@ export const Login = () => {
             <div className={styles.container}>
                 <h2>Login</h2>
 
-                <label for="email"><b>Email</b></label>
+                <label htmlFor="email"><b>Email</b></label>
                 <input className={styles.email} type="text" id="email" placeholder="Enter Email" name="email" required />
 
-                <label for="password"><b>Password</b></label>
+                <label htmlFor="password"><b>Password</b></label>
                 <input className={styles.password} type="password" id="password" placeholder="Enter Password" name="password" required />
 
                 <p>

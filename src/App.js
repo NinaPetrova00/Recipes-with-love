@@ -7,6 +7,7 @@ import { Catalogue } from './components/recipes/catalogue/Catalogue';
 import { Login } from './components/user/login/Login';
 import { Register } from './components/user/register/Register';
 import { Details } from './components/recipes/details/Details';
+import { CreateRecipe } from './components/recipes/catalogue/createRecipe/CreateRecipe';
 import './App.css';
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 
         <Route path='/catalogue' element={<Catalogue></Catalogue>}></Route>
         <Route path='/details' element={<Details />} />
+        <Route path='/create' element={<CreateRecipe />} />
       </Routes>
 
       {/* <CatalogueItem></CatalogueItem> */}

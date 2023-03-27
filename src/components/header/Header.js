@@ -48,7 +48,7 @@ export const Header = () => {
                         <Nav.Link href="/login">Login</Nav.Link>
                         <Nav.Link href="#action2" disabled>Logout</Nav.Link>
                     </div>
-                    <Nav.Link href="#" disabled>Add recipe</Nav.Link>
+                    <Nav.Link href="/create" >Add recipe</Nav.Link>
                 </Nav>
                 <Form className="d-flex">
                     <Form.Control

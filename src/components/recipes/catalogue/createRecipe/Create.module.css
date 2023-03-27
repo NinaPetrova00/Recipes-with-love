@@ -1,0 +1,49 @@
+.createContainer {
+    background-color: #9679694d;
+    border-radius: 15px;
+    text-align: center;
+    padding: 35px 30px;
+    margin: 10px 550px;
+    box-shadow: 0px 25px 40px #9679694d;
+}
+
+.createContainer h1 {
+    font-family: 'Alkatra';
+}
+
+.createContainer .inputRecipe {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.createContainer .addInputBtn {
+    border: 1px solid #907c6f8a;
+    background-color: #907c6f8a;
+    border-radius: 10px;
+}
+
+.createContainer .createBtn {
+    font-family: 'Alkatra';
+    background-color:#2fb986ba;
+    color: black;
+    margin: 22px;
+    padding: 14px 20px;
+    margin-left: 95px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    float: left;
+    width: 50%;
+    font-size: 18px;
+}
+
+.createContainer .createBtn:hover {
+    opacity: 1;
+}

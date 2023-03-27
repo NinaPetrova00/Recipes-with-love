@@ -6,13 +6,13 @@ export const Register = () => {
             <div className={styles.container}>
                 <h2>Register</h2>
 
-                <label for="email"><b>Email</b></label>
+                <label htmlFor="email"><b>Email</b></label>
                 <input className={styles.email} type="text" id="email" placeholder="Enter Email" name="email" required />
 
-                <label for="password"><b>Password</b></label>
+                <label htmlFor="password"><b>Password</b></label>
                 <input className={styles.password} type="password" id="password" placeholder="Enter Password" name="password" required />
 
-                <label for="repeatPassword"><b>Repeat password</b></label>
+                <label htmlFor="repeatPassword"><b>Repeat password</b></label>
                 <input className={styles.repeatPassword} type="repeatPassword" id="repeatPassword" placeholder="Re-enter password" name="repeatPassword" required />
 
                 <p>

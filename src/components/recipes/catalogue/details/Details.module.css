@@ -12,35 +12,46 @@
     width: 275px;
     height: 260px;
     border-radius: 10%;
-    margin-bottom: 15px;
+    margin: 15px;
 }
 
-.detailsItemContainer .ingredientsContainer {
-    background-color: #f8f9fa;
+.recipeContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+    font-size: 20px;
+    text-align: center;
+    padding: 15px;
+}
+
+.recipeContainer h3 {
     text-align: center;
 }
 
-
-
-.detailsItemContainer .ingredientsContainer ul {
-    list-style: none;
-    font-size: 20px;
-    display: inline-block;
-    text-align: left;
-}
-
-.detailsItemContainer .howToContainer {
-    font-size: 20px;
-    padding-top: 25px;
-}
-
-.detailsItemContainer .howToContainer ul{
-    list-style:decimal;
-    font-size: 20px;
+.recipeContainer .ingredientsContainer {
     text-align: left;
     display: inline-block;
 }
 
-.detailsItemContainer .howToContainer ul li{
+.recipeContainer .ingredientsContainer,
+.recipeContainer .howToContainer {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border: 2px solid #9679694d;
+}
+
+.recipeContainer .ingredientsContainer ul {
+    list-style: circle;
+    display: inline-block;
+    text-align: left;
+}
+
+.recipeContainer .howToContainer ul {
+    list-style: decimal;
+    text-align: left;
+    display: inline-block;
+}
+
+.recipeContainer .howToContainer ul li {
     padding: 15px;
 }

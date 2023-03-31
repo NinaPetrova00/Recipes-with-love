@@ -25,6 +25,10 @@
     border: 1px solid #907c6f8a;
     background-color: #907c6f8a;
     border-radius: 10px;
+    width: 44%;
+    padding: 4px;
+    margin-top: 1px;
+    margin-bottom: 15px
 }
 
 .createContainer .createBtn {

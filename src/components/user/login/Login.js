@@ -1,8 +1,18 @@
+import { auth } from "../../../config/firebase";
+import { loginUser } from 'firebase/auth';
+
+import { Link } from "react-router-dom";
+
 import styles from "./Login.module.css";
+import { useState } from "react";
 
 export const Login = () => {
+
+
+   
+
     return (
-        <form className={styles.userForm}>
+        <form className={styles.userForm} >
             <div className={styles.container}>
                 <h2>Login</h2>
 
@@ -14,11 +24,18 @@ export const Login = () => {
 
                 <p>
                     Don't have an account?
-                    <a href="#"> Sign up here</a>
+                    <Link to="/register"> Register here</Link>
                 </p>
 
                 <div className={styles.clearfix}>
-                    <button type="submit" className={styles.loginbtn} name="login">Login</button>
+                    <button
+                        type="submit"
+                        className={styles.loginbtn}
+                        name="login"
+                       // onClick={loginHandler} 
+                         >
+                        Login
+                    </button>
                 </div >
             </div>
         </form>

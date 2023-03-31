@@ -1,10 +1,10 @@
-import styles from '../catalogue-item/CatalogueItem.module.css';
+import styles from './CatalogueItem.module.css';
 
-export const CatalogueItem = () => {
+export const CatalogueItem = ({ recipe }) => {
     return (
         <div className={styles.item}>
-            <h4>Vegan panckaes</h4>
-            <img src="./images/pancakes.jpg" alt="" />
+            <h4>{recipe.title}</h4>
+            <img src={recipe.imageUrl} />
             <div className={styles.detailsDiv}>
                 <button className={styles.detailsBtn}>Details</button>
             </div>

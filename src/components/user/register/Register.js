@@ -1,8 +1,34 @@
+import { Link } from "react-router-dom";
+import { auth } from '../../../config/firebase';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
 import styles from "../login/Login.module.css";
 
 export const Register = () => {
+
+    const onSubmitHandler = async (ev) => {
+        ev.preventDefault();
+
+        const formData = new FormData(ev.target);
+
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const confirmPassword = formData.get('confirm-password');
+
+        // if (password !== confirmPassword) {
+        //     return;
+        //     // or navigate('/404);
+        //}
+
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
-        <form className={styles.userForm}>
+        <form className={styles.userForm} onSubmit={onSubmitHandler}>
             <div className={styles.container}>
                 <h2>Register</h2>
 
@@ -17,7 +43,7 @@ export const Register = () => {
 
                 <p>
                     Already have an account?
-                    <a href="#">Login here</a>
+                    <Link to="/login"> Login here</Link>
                 </p>
 
                 <div className={styles.clearfix}>

@@ -1,6 +1,17 @@
+import * as recipeService from '../../service/RecipeService';
+
 import styles from './Create.module.css';
 
-export const CreateRecipe = () => {
+
+export const Create = () => {
+
+    const addRecipe = async (ev) => {
+        ev.preventDefault();
+        // const recipeData = Object.fromEntries(new FormData(ev.target));
+
+        recipeService.addNewRecipe({ "title": "pancake" });
+    };
+
     return (
         <form action="">
             <div className={styles.createContainer}>
@@ -37,7 +48,7 @@ export const CreateRecipe = () => {
                     className={styles.inputRecipe}
                     type="text"
                     name="ingredient"
-                    placeholder="1tbs sugar"
+                    placeholder="Ingredients"
                 // value="{}"
                 // onChange={onChangeHandler}
                 />
@@ -48,7 +59,7 @@ export const CreateRecipe = () => {
                     className={styles.inputRecipe}
                     type="text"
                     name="cookingSteps"
-                    placeholder="Boil the water"
+                    placeholder="Cooking steps"
                 // value="{}"
                 // onChange={onChangeHandler}
                 />
@@ -59,6 +70,7 @@ export const CreateRecipe = () => {
                     className={styles.createBtn}
                     type="submit"
                     value="Add recipe"
+                    onClick={addRecipe}
                 />
             </div>
         </form>

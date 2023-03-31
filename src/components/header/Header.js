@@ -43,7 +43,7 @@ export const Header = () => {
                         <NavDropdown.Item href="#action3">Login</NavDropdown.Item>
                         <NavDropdown.Item href="#action3">Register</NavDropdown.Item>
                     </NavDropdown> */}
-                    <div style={{ 'padding-left': '639px', 'display': 'flex' }}>
+                    <div style={{ 'paddingLeft': '639px', 'display': 'flex' }}>
                         <Nav.Link href="/register">Register</Nav.Link>
                         <Nav.Link href="/login">Login</Nav.Link>
                         <Nav.Link href="#action2" disabled>Logout</Nav.Link>

@@ -29,7 +29,6 @@ function App() {
     <div>
       <Header />
 
-
       <Routes>
         <Route path="/" element={<Home />}></Route>
 
@@ -37,7 +36,7 @@ function App() {
         <Route path='/register' element={<Register />} />
 
         <Route path='/catalogue' element={<Catalogue recipes={recipes}></Catalogue>}></Route>
-        <Route path='/details' element={<Details />} />
+        <Route path='/details/:recipeId' element={<Details />} />
         <Route path='/create' element={<Create />} />
       </Routes>
 

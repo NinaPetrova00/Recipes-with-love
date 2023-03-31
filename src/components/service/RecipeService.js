@@ -16,9 +16,9 @@ export const getAll = async () => {
     try {
         const data = await getDocs(collection(db, collectionName));
         const resultData = data.docs.map((doc) => ({
-            ...doc.data()
+            ...doc.data(),
+            id: doc.id
         }));
-
         return resultData;
     } catch (error) {
         console.log(error);

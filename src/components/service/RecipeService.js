@@ -1,6 +1,7 @@
 import * as dbService from './DBService';
-import { setDoc, doc, getDocs, collection } from "firebase/firestore";
+import { setDoc, doc, getDocs, getDoc, collection } from "firebase/firestore";
 import { db } from "../../config/firebase";
+import { browserPopupRedirectResolver } from 'firebase/auth';
 
 const collectionName = "recipes";
 
@@ -25,3 +26,14 @@ export const getAll = async () => {
     }
 };
 
+export const getOne = async (recipeId) => {
+    try {
+        const data = doc(db, collectionName, recipeId);
+        const resultData = await getDoc(data);
+
+        return resultData.data();
+
+    } catch (error) {
+        console.log(error);
+    }
+};

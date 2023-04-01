@@ -21,7 +21,7 @@ export const Catalogue = ({ recipes }) => {
 
         <div className={styles.catalogue}>
             {recipes.length > 0
-                ? recipes.map(x => <CatalogueItem key={x._id} recipe={x} />)
+                ? recipes.map(x => <CatalogueItem key={x.id} recipe={x} />)
                 : <h3>No recipes yet!</h3>
             }
         </div>

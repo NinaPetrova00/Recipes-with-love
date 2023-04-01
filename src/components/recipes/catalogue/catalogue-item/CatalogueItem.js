@@ -6,10 +6,10 @@ export const CatalogueItem = ({ recipe }) => {
             <h4>{recipe.title}</h4>
             <img src={recipe.imageUrl} />
             <div className={styles.detailsDiv}>
-                <Link to={`/catalogue/${recipe.id}`}>
-                    <button className={styles.detailsBtn}>Details</button>
+                <Link to={`/details/${recipe.id}`}>
+                 <button className={styles.detailsBtn}>Details</button> 
+              
                 </Link>
-
             </div>
         </div>
     );

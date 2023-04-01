@@ -25,6 +25,8 @@ function App() {
         setRecipes(result));
   }, []);
 
+//  recipes.map((x) => recipeSerive.getOne(x.id));
+
   return (
     <div>
       <Header />

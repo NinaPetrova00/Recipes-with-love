@@ -1,7 +1,7 @@
 import * as recipeService from '../../service/RecipeService';
+import RecipeTypeSwitch from './RecipeTypeSwitch';
 
 import styles from './Create.module.css';
-
 
 export const Create = () => {
 
@@ -66,6 +66,9 @@ export const Create = () => {
                 <input
                     className={styles.addInputBtn} type="submit" value="Add cooking step" />
 
+
+                <RecipeTypeSwitch></RecipeTypeSwitch>
+
                 <input
                     className={styles.createBtn}
                     type="submit"
@@ -76,3 +79,5 @@ export const Create = () => {
         </form>
     );
 }
+
+

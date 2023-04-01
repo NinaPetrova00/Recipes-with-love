@@ -37,3 +37,7 @@ export const getOne = async (recipeId) => {
         console.log(error);
     }
 };
+
+export const createOne = async =>{
+    
+} 

@@ -12,20 +12,12 @@ export const Catalogue = ({ recipeType }) => {
                 setrecipeByType(result));
     }, []);
 
-    console.log(recipeByType);
     return (
         <div className={styles.catalogue}>
             {recipeByType.length > 0
                 ? recipeByType.map(x => <CatalogueItem key={x.id} recipe={x} />)
-                : <h3>No recipes yet!</h3>
+                : <h3>No recipes of this category yet!</h3>
             }
         </div>
-
-        // <div className={styles.catalogue}>
-        //     {veganRecipes.length > 0
-        //         ? veganRecipes.map(x => <CatalogueItem key={x.id} recipe={x} />)
-        //         : <h3>No recipes yet!</h3>
-        //     }
-        // </div>
     );
 }

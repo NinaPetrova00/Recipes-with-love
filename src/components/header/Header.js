@@ -24,7 +24,7 @@ export const Header = () => {
                         <NavDropdown.Item href="/catalogue/lowSugar">Low sugar</NavDropdown.Item>
                         <NavDropdown.Item href="/catalogue/glutenFree">Gluten free</NavDropdown.Item>
                         <NavDropdown.Item href="/catalogue/lacoseFree">Lactose free</NavDropdown.Item>
-                        <NavDropdown.Divider />
+                        {/* <NavDropdown.Divider /> */}
                         {/* <NavDropdown.Item href="/catalogue">
                             Regular recipes
                         </NavDropdown.Item> */}

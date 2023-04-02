@@ -6,17 +6,11 @@ import styles from './Create.module.css';
 export const Create = () => {
 
     const onSubmitHandler = async (ev) => {
+
         ev.preventDefault();
+
         const recipeData = Object.fromEntries(new FormData(ev.target));
-
-        recipeService.addNewRecipe({ "title": "pancake" });
-
-        /*
-                gameService.create(gameData)
-            .then(result => {
-                addGameHandler(result);
-            });
-             */
+        recipeService.addNewRecipe(recipeData);
     };
 
     return (

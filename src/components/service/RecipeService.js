@@ -1,25 +1,27 @@
 import * as dbService from './DBService';
-import { setDoc, doc, getDocs, getDoc, collection, query, where } from "firebase/firestore";
+import { doc, getDocs, getDoc, collection, query, where, addDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { browserPopupRedirectResolver } from 'firebase/auth';
 
 const collectionName = "recipes";
 
-export const addNewRecipe = (data) => {
-    dbService.createRecord(collectionName, data);
+// CREATE
+export const addNewRecipe = async (recipeData) => {
+
+    // addDoc - Cloud Firestore auto-generate an ID 
+    const resultData = await addDoc(collection(db, collectionName), recipeData);
+
+    console.log("Document written with ID: ", resultData.id);
+
+    return resultData;
 };
-// export const createRecord = async (collectionName, data) => {
-//     await setDoc(doc(db, collectionName, createUniqueId()), data);
-// };
 
-// export const getAllRecipes = () => {
-//     return dbService.getAllRecords(collectionName); //collectionName
-// }
 
+// READ
 export const getAll = async () => {
     try {
-        const data = await getDocs(collection(db, collectionName));
-        const resultData = data.docs.map((doc) => ({
+        const dbData = await getDocs(collection(db, collectionName));
+        const resultData = dbData.docs.map((doc) => ({
             ...doc.data(),
             id: doc.id
         }));
@@ -31,11 +33,10 @@ export const getAll = async () => {
 
 export const getOne = async (recipeId) => {
     try {
-        const data = doc(db, collectionName, recipeId);
-        const resultData = await getDoc(data);
+        const dbData = doc(db, collectionName, recipeId);
+        const resultData = await getDoc(dbData);
 
         return resultData.data();
-
     } catch (error) {
         console.log(error);
     }
@@ -43,14 +44,14 @@ export const getOne = async (recipeId) => {
 
 export const getRecipesByType = async (recipeType) => {
     try {
-        const q = query(collection(db, collectionName), where(recipeType, "==", true));
-        const querySnapshot = await getDocs(q);
-        const resultData = querySnapshot.docs.map((doc) => ({
+        const dbData = query(collection(db, collectionName), where(recipeType, "==", true));
+        const resultData = await getDocs(dbData);
+        const result = resultData.docs.map((doc) => ({
             ...doc.data(),
             id: doc.id
         }));
 
-        return resultData;
+        return result;
     } catch (error) {
         console.log(error);
     }

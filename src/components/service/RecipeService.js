@@ -1,5 +1,5 @@
 import * as dbService from './DBService';
-import { setDoc, doc, getDocs, getDoc, collection } from "firebase/firestore";
+import { setDoc, doc, getDocs, getDoc, collection, query, where } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { browserPopupRedirectResolver } from 'firebase/auth';
 
@@ -8,6 +8,9 @@ const collectionName = "recipes";
 export const addNewRecipe = (data) => {
     dbService.createRecord(collectionName, data);
 };
+// export const createRecord = async (collectionName, data) => {
+//     await setDoc(doc(db, collectionName, createUniqueId()), data);
+// };
 
 // export const getAllRecipes = () => {
 //     return dbService.getAllRecords(collectionName); //collectionName
@@ -38,6 +41,17 @@ export const getOne = async (recipeId) => {
     }
 };
 
-export const createOne = async =>{
-    
-} 
+export const getRecipesByType = async (recipeType) => {
+    try {
+        const q = query(collection(db, collectionName), where(recipeType, "==", true));
+        const querySnapshot = await getDocs(q);
+        const resultData = querySnapshot.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id
+        }));
+
+        return resultData;
+    } catch (error) {
+        console.log(error);
+    }
+};

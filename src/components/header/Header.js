@@ -18,16 +18,16 @@ export const Header = () => {
                 >
                     <Nav.Link href="/">Home</Nav.Link>
                     <NavDropdown title="Recipes" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="/catalogue">Vegan</NavDropdown.Item>
-                        <NavDropdown.Item href="#action3">Vegetarian</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">High protein</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">Low sugar</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">Gluten free</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">Lactose free</NavDropdown.Item>
+                        <NavDropdown.Item href="/catalogue/vegan">Vegan</NavDropdown.Item>
+                        <NavDropdown.Item href="/catalogue/vegetarian">Vegetarian</NavDropdown.Item>
+                        <NavDropdown.Item href="/catalogue/highProtein">High protein</NavDropdown.Item>
+                        <NavDropdown.Item href="/catalogue/lowSugar">Low sugar</NavDropdown.Item>
+                        <NavDropdown.Item href="/catalogue/glutenFree">Gluten free</NavDropdown.Item>
+                        <NavDropdown.Item href="/catalogue/lacoseFree">Lactose free</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action5">
+                        {/* <NavDropdown.Item href="/catalogue">
                             Regular recipes
-                        </NavDropdown.Item>
+                        </NavDropdown.Item> */}
                     </NavDropdown>
                     <NavDropdown title="Meal Type" id="navbarScrollingDropdown">
                         <NavDropdown.Item href="#action3">Breakfast</NavDropdown.Item>

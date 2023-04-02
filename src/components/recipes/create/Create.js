@@ -5,15 +5,22 @@ import styles from './Create.module.css';
 
 export const Create = () => {
 
-    const addRecipe = async (ev) => {
+    const onSubmitHandler = async (ev) => {
         ev.preventDefault();
-        // const recipeData = Object.fromEntries(new FormData(ev.target));
+        const recipeData = Object.fromEntries(new FormData(ev.target));
 
         recipeService.addNewRecipe({ "title": "pancake" });
+
+        /*
+                gameService.create(gameData)
+            .then(result => {
+                addGameHandler(result);
+            });
+             */
     };
 
     return (
-        <form action="">
+        <form onSubmit={onSubmitHandler}>
             <div className={styles.createContainer}>
                 <h1>Add new recipe</h1>
 
@@ -67,13 +74,19 @@ export const Create = () => {
                     className={styles.addInputBtn} type="submit" value="Add cooking step" />
 
 
-                <RecipeTypeSwitch></RecipeTypeSwitch>
+                <div className={styles.recipeTypeContainer}>
+                    <h4>Choose recipe's type</h4>
+                    <div className={styles.recipeTypeSwitch}>
+                        <RecipeTypeSwitch></RecipeTypeSwitch>
+                    </div>
+                </div>
+
 
                 <input
                     className={styles.createBtn}
                     type="submit"
                     value="Add recipe"
-                    onClick={addRecipe}
+                //  onClick={addRecipe}
                 />
             </div>
         </form>

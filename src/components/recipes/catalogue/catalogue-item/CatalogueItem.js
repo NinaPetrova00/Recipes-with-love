@@ -1,7 +1,17 @@
+import { Link, useNavigate } from 'react-router-dom';
+import * as recipeService from '../../../service/RecipeService';
+
 import styles from './CatalogueItem.module.css';
-import { Link } from 'react-router-dom';
 
 export const CatalogueItem = ({ recipe }) => {
+    const navigate = useNavigate();
+
+    const onClickHandler = () => {
+        recipeService.deleteRecipe(recipe.id);
+
+        navigate('/');
+    };
+
     return (
 
         <div className={styles.item}>
@@ -22,11 +32,10 @@ export const CatalogueItem = ({ recipe }) => {
                     </button>
                 </Link>
 
-                <Link to={`/delete/${recipe.id}`}>
-                    <button className={styles.deleteBtn}>
-                        <img src={process.env.PUBLIC_URL + '/images/deleteIcon.png'} />
-                    </button>
-                </Link>
+                <button className={styles.deleteBtn} onClick={onClickHandler}>
+                    <img src={process.env.PUBLIC_URL + '/images/deleteIcon.png'} />
+                </button>
+
             </div>
         </div>
     );

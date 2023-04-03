@@ -142,10 +142,10 @@ export const Edit = () => {
                             <Form.Check type="switch" id="custom-switch-lactoseFree" label="Lactoce Free" onLoad={checkRecipeType()} /> */}
                         {/* <Form.Check type="switch" id="custom-switch" label="Regular recipe" /> */}
                         {/* </Form> */}
-                    
+
                     </div>
                 </div>
-
+                {/* //todo: checkboxes */}
                 <input
                     className={styles.createBtn}
                     type="submit"

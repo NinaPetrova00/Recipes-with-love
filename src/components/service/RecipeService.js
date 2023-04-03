@@ -75,7 +75,7 @@ export const editRecipe = async (recipeId, updatedData) => {
         imageUrl: updatedData.imageUrl,
         cookingTime: updatedData.cookingTime,
 
-       // vegan: Boolean(updatedData.vegan),
+        // vegan: Boolean(updatedData.vegan),
         // vegetarian: updatedData.vegetarian,
         // highProtein: updatedData.highProtein,
         // lowSugar: updatedData.lowSugar,

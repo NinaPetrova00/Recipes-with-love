@@ -30,12 +30,35 @@
 
 .catalogue .detailsDiv {
   padding: 15px;
+}
+
+.catalogue .detailsBtn,
+.catalogue .editBtn,
+.catalogue .deleteBtn {
+  border-radius: 10%;
+  padding: 7px 14px;
   font-family: 'Alkatra';
   font-size: 20px;
 }
 
 .catalogue .detailsBtn {
-  border-radius: 10%;
-  padding: 7px 14px;
   background-color: #9679694d;
+}
+
+.catalogue .editDelDiv img {
+  width: 30px;
+  height: 30px;
+}
+
+.catalogue .editBtn,
+.catalogue .deleteBtn {
+  margin-right: 15px;
+}
+
+.catalogue .editBtn {
+  background-color: #85b7ca;
+}
+
+.catalogue .deleteBtn {
+  background-color: #ff000082;
 }

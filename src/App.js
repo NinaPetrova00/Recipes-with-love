@@ -12,6 +12,7 @@ import { CatalogueItem } from './components/recipes/catalogue/catalogue-item/Cat
 import { Login } from './components/user/login/Login';
 import { Register } from './components/user/register/Register';
 import { Details } from './components/recipes/details/Details';
+import { Edit } from './components/recipes/edit/Edit';
 import { Create } from './components/recipes/create/Create';
 import './App.css';
 import * as recipeService from './components/service/RecipeService';
@@ -45,8 +46,13 @@ function App() {
         <Route path='/catalogue/glutenFree' element={<Catalogue recipeType={"glutenFree"} ></Catalogue>}></Route>
         <Route path='/catalogue/lactoseFree' element={<Catalogue recipeType={"lactoseFree"} ></Catalogue>}></Route>
 
+        <Route path='/catalogue/lactoseFree' element={<Catalogue recipeType={"lactoseFree"} ></Catalogue>}></Route>
+
         <Route path='/details/:recipeId' element={<Details />} />
+        <Route path='/edit/:recipeId' element={<Edit />} />
+
         <Route path='/create' element={<Create />} />
+
       </Routes>
       {/* </RecipeContext.Provider> */}
     </div>

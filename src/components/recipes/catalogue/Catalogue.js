@@ -18,6 +18,16 @@ export const Catalogue = ({ recipeType }) => {
                 ? recipeByType.map(x => <CatalogueItem key={x.id} recipe={x} />)
                 : <h3>No recipes of this category yet!</h3>
             }
+            {
+                // <ul>
+                //     <li>
+                //     {
+                //     recipeByType.map((x) => x.test.split(","))
+                //     }
+                //     </li>
+                // </ul>
+
+            }
         </div>
     );
 }

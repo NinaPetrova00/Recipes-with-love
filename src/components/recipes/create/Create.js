@@ -1,16 +1,26 @@
+import { useNavigate } from "react-router-dom";
+
 import * as recipeService from '../../service/RecipeService';
-import RecipeTypeSwitch from './RecipeTypeSwitch';
+import RecipeTypeSwitchCreate from './RecipeTypeSwitchCreate';
 
 import styles from './Create.module.css';
 
 export const Create = () => {
-
+    const navigate = useNavigate();
     const onSubmitHandler = async (ev) => {
 
         ev.preventDefault();
 
         const recipeData = Object.fromEntries(new FormData(ev.target));
         recipeService.addNewRecipe(recipeData);
+
+        navigate('/');
+    };
+
+    const addIngredientHandler = (ev) => {
+        // ev.preventDefault();
+        // const ingredients = new FormData(document.getElementById("ingredients"));
+        recipeService.addIngredient();
     };
 
     return (
@@ -27,34 +37,37 @@ export const Create = () => {
                     placeholder="Recipe title"
                 />
 
-                <label htmlFor="image" />
+                <label htmlFor="imageUrl" />
                 <input
                     className={styles.inputRecipe}
                     type="text"
-                    id="image"
-                    name="image"
-                    placeholder="Recipe image"
+                    id="imageUrl"
+                    name="imageUrl"
+                    placeholder="Recipe imageUrl"
                 />
 
-                <label htmlFor="time" />
+                <label htmlFor="cookingTime" />
                 <input
                     className={styles.inputRecipe}
                     type="text"
-                    id="time"
-                    name="time"
+                    id="cookingTime"
+                    name="cookingTime"
                     placeholder="Cooking time"
                 />
 
+//TODO: fix ingredients button
+
                 <input
                     className={styles.inputRecipe}
                     type="text"
-                    name="ingredient"
+                    name="ingredients"
+                    id="ingredients"
                     placeholder="Ingredients"
-                // value="{}"
-                // onChange={onChangeHandler}
+                    // value="{}"
+                    onChange={addIngredientHandler}
                 />
                 <input
-                    className={styles.addInputBtn} type="submit" value="Add ingredient" />
+                    className={styles.addInputBtn} type="button" value="Add ingredient" />
 
                 <input
                     className={styles.inputRecipe}
@@ -67,11 +80,12 @@ export const Create = () => {
                 <input
                     className={styles.addInputBtn} type="submit" value="Add cooking step" />
 
+//TODO: check if onclick is clicked
 
                 <div className={styles.recipeTypeContainer}>
                     <h4>Choose recipe's type</h4>
                     <div className={styles.recipeTypeSwitch}>
-                        <RecipeTypeSwitch></RecipeTypeSwitch>
+                        <RecipeTypeSwitchCreate></RecipeTypeSwitchCreate>
                     </div>
                 </div>
 
@@ -80,7 +94,6 @@ export const Create = () => {
                     className={styles.createBtn}
                     type="submit"
                     value="Add recipe"
-                //  onClick={addRecipe}
                 />
             </div>
         </form>

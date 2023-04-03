@@ -1,6 +1,6 @@
 import Form from 'react-bootstrap/Form';
+function RecipeTypeSwitchCreate() {
 
-function RecipeTypeSwitch() {
     return (
         <>
             <Form>
@@ -83,4 +83,4 @@ function RecipeTypeSwitch() {
     );
 }
 
-export default RecipeTypeSwitch;
+export default RecipeTypeSwitchCreate;

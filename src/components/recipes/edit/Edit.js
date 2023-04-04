@@ -69,7 +69,7 @@ export const Edit = () => {
             <div className={styles.createContainer}>
                 <h1>Edit your recipe</h1>
 
-                <label htmlFor="title" />
+                <label htmlFor="title">Title</label>
                 <input
                     className={styles.inputRecipe}
                     type="text"
@@ -79,7 +79,7 @@ export const Edit = () => {
                     defaultValue={currentRecipe.title}
                 />
 
-                <label htmlFor="imageUrl" />
+                <label htmlFor="imageUrl">ImageUrl</label>
                 <input
                     className={styles.inputRecipe}
                     type="text"
@@ -89,7 +89,7 @@ export const Edit = () => {
                     defaultValue={currentRecipe.imageUrl}
                 />
 
-                <label htmlFor="cookingTime" />
+                <label htmlFor="cookingTime">Cooking time</label>
                 <input
                     className={styles.inputRecipe}
                     type="text"
@@ -99,32 +99,24 @@ export const Edit = () => {
                     defaultValue={currentRecipe.cookingTime}
                 />
 
-                {/* //TODO: fix ingredients button */}
-
-                <input
-                    className={styles.inputRecipe}
-                    type="text"
+                <label htmlFor="ingredients" className={styles.customLabel}>
+                    Please, write every ingredient on new line!</label>
+                <textarea
                     name="ingredients"
                     id="ingredients"
                     placeholder="Ingredients"
-                    defaultValue={currentRecipe.ingredients}
-                // value="{}"
+                    defaultValue={currentRecipe.ingredients}>
+                </textarea>
 
-                />
-                <input
-                    className={styles.addInputBtn} type="button" value="Add ingredient" />
-
-                <input
-                    className={styles.inputRecipe}
-                    type="text"
+                <label htmlFor="cookingSteps" className={styles.customLabel}>
+                    Please, write every step on new line!</label>
+                <textarea
                     name="cookingSteps"
+                    id="cookingSteps"
                     placeholder="Cooking steps"
-                    defaultValue={currentRecipe.cookingSteps}
-                // value="{}"
-                // onChange={onChangeHandler}
-                />
-                <input
-                    className={styles.addInputBtn} type="submit" value="Add cooking step" />
+                    defaultValue={currentRecipe.cookingSteps} >
+                </textarea>
+
 
                 {/* //TODO: check if onclick is clicked */}
 

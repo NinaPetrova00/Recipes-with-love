@@ -55,34 +55,33 @@ export const Create = () => {
                     placeholder="Cooking time"
                 />
 
-                {/* //TODO: fix ingredients button */}
-
-                <label htmlFor="ingredients"><b>Please, write every ingredient on new line!</b></label>
+                <label htmlFor="ingredients" className={styles.customLabel}>
+                    Please, write every ingredient on new line!</label>
                 <textarea
                     name="ingredients"
+                    id="ingredients"
                     placeholder="Ingredients:
                 flour 
                 sugar 
                 eggs"></textarea>
 
-                <label htmlFor="cookingSteps"><b>Please, write every step on new line!</b></label>
+                <label htmlFor="cookingSteps" className={styles.customLabel}>
+                    Please, write every step on new line!</label>
                 <textarea
                     name="cookingSteps"
+                    id="cookingSteps"
                     placeholder="Cooking steps:
                 Wash 
                 Cut 
                 Bake"></textarea>
 
-                {/* //TODO: check if onclick is clicked */}
-
+                {/* //todo: fix checkboxes */}
                 <div className={styles.recipeTypeContainer}>
                     <h4>Choose recipe's type</h4>
                     <div className={styles.recipeTypeSwitch}>
                         <RecipeTypeSwitchCreate></RecipeTypeSwitchCreate>
                     </div>
                 </div>
-
-
                 <input
                     className={styles.createBtn}
                     type="submit"

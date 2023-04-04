@@ -8,7 +8,8 @@
 }
 
 .createContainer h1,
-.createContainer h4 {
+.createContainer h4,
+label {
     font-family: 'Alkatra';
 }
 
@@ -76,8 +77,13 @@ textarea {
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
+    border-radius: 10px;
+    background: #f1f1f1;
     font-size: 16px;
     resize: none;
+}
+
+.customLabel {
+    font-size: 21px;
+    color: red;
 }

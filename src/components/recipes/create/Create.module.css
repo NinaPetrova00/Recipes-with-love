@@ -58,17 +58,24 @@ label {
     background-color: #958c8645;
     padding: 15px;
     margin: 5px 0 22px 0;
-    display: inline-block;
+    /* display: inline-block; */
     border: none;
     border-radius: 10px;
     border-radius: -1%;
+}
+.createContainer .recipeTypeContainer  h4{
+    padding-bottom: 15px;
 }
 
 .createContainer .recipeTypeContainer .recipeTypeSwitch {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 70px;
+    grid-gap: 15px;
     text-align: left;
+}
+
+.createContainer .recipeTypeContainer .recipeTypeSwitch label {
+    font-size: 18px;
 }
 
 textarea {
@@ -84,6 +91,6 @@ textarea {
 }
 
 .customLabel {
-    font-size: 21px;
+    font-size: 19px;
     color: red;
 }

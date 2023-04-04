@@ -109,7 +109,7 @@ export const Edit = () => {
                 </textarea>
 
                 <label htmlFor="cookingSteps" className={styles.customLabel}>
-                    Please, write every step on new line!</label>
+                    Please, write every cooking step on new line!</label>
                 <textarea
                     name="cookingSteps"
                     id="cookingSteps"
@@ -136,6 +136,7 @@ export const Edit = () => {
                         {/* </Form> */}
 
                     </div>
+
                 </div>
                 {/* //todo: checkboxes */}
                 <input

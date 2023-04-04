@@ -42,7 +42,7 @@ export const getOne = async (recipeId) => {
 
 export const getRecipesByType = async (recipeType) => {
     try {
-        const dbData = query(collection(db, collectionName), where(recipeType, "==", true));
+        const dbData = query(collection(db, collectionName), where(recipeType, "==", "yes"));
         const resultData = await getDocs(dbData);
         const result = resultData.docs.map((doc) => ({
             ...doc.data(),
@@ -55,16 +55,6 @@ export const getRecipesByType = async (recipeType) => {
     }
 };
 
-
-
-export const addIngredient = async (recipeId, newValue) => {
-    const ingredient = doc(db, collectionName, recipeId);
-
-    // Atomically add a new region to the "regions" array field.
-    return await updateDoc(ingredient, {
-        ingredients: arrayUnion(newValue)
-    });
-};
 
 // UPDATE
 export const editRecipe = async (recipeId, updatedData) => {

@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
 
 import * as recipeService from '../../service/RecipeService';
-import RecipeTypeSwitchCreate from './RecipeTypeSwitchCreate';
 
 import styles from './Create.module.css';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 export const Create = () => {
     const navigate = useNavigate();
@@ -13,14 +14,6 @@ export const Create = () => {
 
         const recipeData = Object.fromEntries(new FormData(ev.target));
         recipeService.addNewRecipe(recipeData);
-
-        navigate('/');
-    };
-
-    const addIngredientHandler = (ev) => {
-        // ev.preventDefault();
-        // const ingredients = new FormData(document.getElementById("ingredients"));
-        recipeService.addIngredient();
     };
 
     return (
@@ -28,31 +21,31 @@ export const Create = () => {
             <div className={styles.createContainer}>
                 <h1>Add new recipe</h1>
 
-                <label htmlFor="title" />
+                <label htmlFor="title">Title</label>
                 <input
                     className={styles.inputRecipe}
                     type="text"
                     id="title"
                     name="title"
-                    placeholder="Recipe title"
+                    placeholder="Vegan pancakes"
                 />
 
-                <label htmlFor="imageUrl" />
+                <label htmlFor="imageUrl">ImageUrl</label>
                 <input
                     className={styles.inputRecipe}
                     type="text"
                     id="imageUrl"
                     name="imageUrl"
-                    placeholder="Recipe imageUrl"
+                    placeholder="https://kitchen.com/vegan-pancakes.jpg"
                 />
 
-                <label htmlFor="cookingTime" />
+                <label htmlFor="cookingTime">Cooking time</label>
                 <input
                     className={styles.inputRecipe}
                     type="text"
                     id="cookingTime"
                     name="cookingTime"
-                    placeholder="Cooking time"
+                    placeholder="40 min"
                 />
 
                 <label htmlFor="ingredients" className={styles.customLabel}>
@@ -66,7 +59,7 @@ export const Create = () => {
                 eggs"></textarea>
 
                 <label htmlFor="cookingSteps" className={styles.customLabel}>
-                    Please, write every step on new line!</label>
+                    Please, write every cooking step on new line!</label>
                 <textarea
                     name="cookingSteps"
                     id="cookingSteps"
@@ -75,13 +68,41 @@ export const Create = () => {
                 Cut 
                 Bake"></textarea>
 
-                {/* //todo: fix checkboxes */}
                 <div className={styles.recipeTypeContainer}>
                     <h4>Choose recipe's type</h4>
                     <div className={styles.recipeTypeSwitch}>
-                        <RecipeTypeSwitchCreate></RecipeTypeSwitchCreate>
+                        <label for="vegan">
+                            <input type="checkbox" id="vegan" name="vegan" value="yes" />  Vegan
+                            <span className={styles.checkmark}></span>
+                        </label>
+                        <label for="vegetarian">
+                            <input type="checkbox" id="vegetarian" name="vegetarian" value="yes" />Vegetarian
+                        </label>
+                        <label for="highProtein">
+                            <input type="checkbox" id="highProtein" name="highProtein" value="yes" />High Protein
+                        </label>
+                        <label for="lowSugar">
+                            <input type="checkbox" id="lowSugar" name="lowSugar" value="yes" />Low Sugar
+                        </label>
+                        <label for="glutenFree">
+                            <input type="checkbox" id="glutenFree" name="glutenFree" value="yes" />Gluten Free
+                        </label>
+                        <label for="lactoseFree">
+                            <input type="checkbox" id="lactoseFree" name="lactoseFree" value="yes" />Lacotse Free
+                        </label>
+                        {/* <InputGroup className="mb-3">
+                            <InputGroup.Checkbox  value="yes" name="vegan" />Vegan
+                            <InputGroup.Checkbox aria-label="Checkbox for following text input" value="yes" name="vegetarian" />Vegetarian
+                            <InputGroup.Checkbox aria-label="Checkbox for following text input" value="yes" name="highProtein" />High Protein
+                            <InputGroup.Checkbox aria-label="Checkbox for following text input" value="yes" name="lowSugar" />lowSugar
+                            <InputGroup.Checkbox aria-label="Checkbox for following text input" value="yes" name="glutenFree" />Gluten Free
+                            <InputGroup.Checkbox aria-label="Checkbox for following text input" value="yes" name="lactoseFree" />Lactose Free
+                        </InputGroup> */}
                     </div>
+
                 </div>
+
+
                 <input
                     className={styles.createBtn}
                     type="submit"

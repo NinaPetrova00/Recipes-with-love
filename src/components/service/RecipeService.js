@@ -69,7 +69,7 @@ export const editRecipe = async (recipeId, updatedData) => {
         highProtein: updatedData.highProtein,
         lowSugar: updatedData.lowSugar,
         glutenFree: updatedData.glutenFree,
-        lactosefree: updatedData.lactosefree,
+        lactoseFree: updatedData.lactoseFree,
 
         //   TODO: ingredients, cookingSteps, cookingType
     });

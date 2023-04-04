@@ -34,7 +34,7 @@ export const Create = () => {
         recipeData.highProtein = recipeData.highProtein ? "yes" : "no";
         recipeData.lowSugar = recipeData.lowSugar ? "yes" : "no";
         recipeData.glutenFree = recipeData.glutenFree ? "yes" : "no";
-        recipeData.lactosefree = recipeData.lactosefree ? "yes" : "no";
+        recipeData.lactoseFree = recipeData.lactoseFree ? "yes" : "no";
     };
 
     return (

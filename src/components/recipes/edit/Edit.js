@@ -8,6 +8,7 @@ export const Edit = () => {
     const [currentRecipe, setCurentRecipe] = useState({})
     const { recipeId } = useParams();
     const navigate = useNavigate();
+    const [isChecked, setIsChecked] = useState();
 
     useEffect(() => {
         recipeService.getOne(recipeId)
@@ -16,64 +17,75 @@ export const Edit = () => {
             })
     }, []);
 
-    // function checkRecipeType() {
-    //   //  let isVegan = currentRecipe.vegan ? true : false;
-    //     let isVegetarian = currentRecipe.vegetarian ? true : false;
-    //     let isHighProtein = currentRecipe.highProtein ? true : false;
-    //     let isLowSugar = currentRecipe.lowSugar ? true : false;
-    //     let isGlutenFree = currentRecipe.isGlutenFree ? true : false;
-    //     let isLactoseFree = currentRecipe.isLactoseFree ? true : false;
-
-    //     // if (isVegan) {
-    //     //     document.getElementById("custom-switch-vegan").checked = true;
-    //     // }
-    //     if (isVegetarian) {
-    //         document.getElementById("custom-switch-vegetarian").checked = true;
-    //     }
-    //     if (isHighProtein) {
-    //         document.getElementById("custom-switch-highProtein").checked = true;
-    //     }
-    //     if (isLowSugar) {
-    //         document.getElementById("custom-switch-lowSugar").checked = true;
-    //     }
-    //     if (isGlutenFree) {
-    //         document.getElementById("custom-switch-glutenFree").checked = true;
-    //     }
-    //     if (isLactoseFree) {
-    //         document.getElementById("custom-switch-lactoseFree").checked = true;
-    //     }
-    // }
-    console.log('title: ', currentRecipe.title);
-    console.log('vegan ', currentRecipe.vegan);
-    console.log('vegetarian ', currentRecipe.vegetarian);
-    console.log('highProtein ', currentRecipe.highProtein);
-    console.log('lowSugar ', currentRecipe.lowSugar);
-    console.log('glutenFree ', currentRecipe.glutenFree);
-    console.log('lacotseFree ', currentRecipe.lactosefree);
     const onSubmitHandler = async (ev) => {
 
-        ev.preventDefault();
+        //ev.preventDefault();
 
         const updatedData = Object.fromEntries(new FormData(ev.target));
-
+        updatedData.vegan = currentRecipe.vegan == "yes" ? "yes" : "no";
+        // let v = ev.target.checked ? "yes" : "no";
+        // updatedData.vegan = v;
+        updatedData.vegetarian = updatedData.vegetarian ? "yes" : "no";
+        updatedData.highProtein = updatedData.highProtein ? "yes" : "no";
+        updatedData.lowSugar = updatedData.lowSugar ? "yes" : "no";
+        updatedData.glutenFree = updatedData.glutenFree ? "yes" : "no";
+        updatedData.lactoseFree = updatedData.lactoseFree ? "yes" : "no";
+        // const uData = setChechboxesValue(currentRecipe);
         // const formData = new FormData(ev.target);
         // const title = formData.get('title');
         // console.log(title);
         // console.log({updatedData});
-        console.log("After edit")
-        console.log('title: ', updatedData.title);
-        console.log('vegan ', updatedData.vegan);
-        console.log('vegetarian ', updatedData.vegetarian);
-        console.log('highProtein ', updatedData.highProtein);
-        console.log('lowSugar ', updatedData.lowSugar);
-        console.log('glutenFree ', updatedData.glutenFree);
-        console.log('lacotseFree ', updatedData.lactosefree);
+        // console.log("After edit")
+        // console.log('title: ', updatedData.title);
+        // console.log('vegan ', updatedData.vegan);
+        // console.log('vegetarian ', updatedData.vegetarian);
+        // console.log('highProtein ', updatedData.highProtein);
+        // console.log('lowSugar ', updatedData.lowSugar);
+        // console.log('glutenFree ', updatedData.glutenFree);
+        // console.log('lacotoseFree ', updatedData.lactosefree);
         recipeService.editRecipe(recipeId, updatedData);
 
         // TODO: fix the navigate
         //navigate('/catalogue/vegan');
     };
 
+    // TODO: fix recipe types
+    // const setChechboxesValue = (updatedData) => {
+    //     updatedData.vegan = updatedData.vegan ? "yes" : "no";
+    //     updatedData.vegetarian = updatedData.vegetarian ? "yes" : "no";
+    //     updatedData.highProtein = updatedData.highProtein ? "yes" : "no";
+    //     updatedData.lowSugar = updatedData.lowSugar ? "yes" : "no";
+    //     updatedData.glutenFree = updatedData.glutenFree ? "yes" : "no";
+    //     updatedData.lactoseFree = updatedData.lactoseFree ? "yes" : "no";
+    //     console.log('vegan ', updatedData.vegan);
+    //     console.log('vegetarian ', updatedData.vegetarian);
+    //     console.log('highProtein ', updatedData.highProtein);
+    //     console.log('lowSugar ', updatedData.lowSugar);
+    //     console.log('glutenFree ', updatedData.glutenFree);
+    //     console.log('lacotoseFree ', updatedData.lactoseFree);
+
+    //     return updatedData;
+    // };
+
+    // console.log('title: ', currentRecipe.title);
+    // console.log('vegan ', currentRecipe.vegan);
+    // console.log('vegetarian ', currentRecipe.vegetarian);
+    // console.log('highProtein ', currentRecipe.highProtein);
+    // console.log('lowSugar ', currentRecipe.lowSugar);
+    // console.log('glutenFree ', currentRecipe.glutenFree);
+    // console.log('lacotseFree ', currentRecipe.lacoseFree);
+
+    const handleChange = event => {
+        if (event.target.checked) {
+            console.log('✅ Checkbox is checked');
+        } else {
+            console.log('⛔️ Checkbox is NOT checked');
+        }
+
+        // todo: тук се взима стойността на новото цъкване/ънцъкване
+        //Todo: променят се в базата, само трябва да направя така че да се визуализират, май се промянят няколко наведнъж
+        // setIsSubscribed(current => !current);
+    };
 
     return (
         <form onSubmit={onSubmitHandler}>
@@ -135,23 +147,23 @@ export const Edit = () => {
                     <h4>Choose recipe's type</h4>
                     <div className={styles.recipeTypeSwitch}>
                         <label htmlFor="vegan">
-                            <input type="checkbox" id="vegan" name="vegan" value="yes" checked={currentRecipe.vegan} />  Vegan
+                            <input type="checkbox" id="vegan" name="vegan" value={currentRecipe.vegan ? "yes" : "no"} checked={currentRecipe.vegan ? true : false} />  Vegan
                             <span className={styles.checkmark}></span>
                         </label>
                         <label htmlFor="vegetarian">
-                            <input type="checkbox" id="vegetarian" name="vegetarian" value="yes" checked={currentRecipe.vegetarian} />Vegetarian
+                            <input type="checkbox" id="vegetarian" name="vegetarian" value={currentRecipe.vegetarian ? "yes" : "no"}  checked={currentRecipe.vegetarian ? true : false}/>Vegetarian
                         </label>
                         <label htmlFor="highProtein">
-                            <input type="checkbox" id="highProtein" name="highProtein" value="yes" checked={currentRecipe.highProtein} />High Protein
+                            <input type="checkbox" id="highProtein" name="highProtein" value={currentRecipe.highProtein ? "yes" : "no"} />High Protein
                         </label>
                         <label htmlFor="lowSugar">
-                            <input type="checkbox" id="lowSugar" name="lowSugar" value="yes" checked={currentRecipe.lowSugar} />Low Sugar
+                            <input type="checkbox" id="lowSugar" name="lowSugar" value={currentRecipe.lowSugar ? "yes" : "no"} />Low Sugar
                         </label>
                         <label htmlFor="glutenFree">
-                            <input type="checkbox" id="glutenFree" name="glutenFree" value="yes" checked={currentRecipe.glutenFree} />Gluten Free
+                            <input type="checkbox" id="glutenFree" name="glutenFree" value={currentRecipe.glutenFree ? "yes" : "no"} />Gluten Free
                         </label>
                         <label htmlFor="lactoseFree">
-                            <input type="checkbox" id="lactoseFree" name="lactoseFree" value="yes" checked={currentRecipe.lactosefree} />Lacotse Free
+                            <input type="checkbox" id="lactoseFree" name="lactoseFree" value={currentRecipe.lactoseFree ? "yes" : "no"} />Lacotose Free
                         </label>
 
                     </div>

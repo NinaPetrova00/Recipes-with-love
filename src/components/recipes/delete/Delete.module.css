@@ -1,0 +1,33 @@
+.confirmDeleteContainer {
+    font-family: 'Alkatra';
+    text-align: center;
+    margin: auto;
+    width: 500px;
+    background-color: #f8f9fa;
+    margin-top: 20px;
+}
+
+.warningContainer {
+    background-color: #dee4a975;
+}
+
+.confirmDeleteContainer .warningContainer img {
+    width: 30px;
+    height: 30px;
+}
+
+.confirmDeleteContainer .warningContainer h3 {
+    color: #e24c4b;
+    margin-bottom: 19px;
+    padding: 15px;
+}
+
+.confirmDeleteContainer .edit,
+.confirmDeleteContainer .del {
+    margin: 15px;
+    font-size: 18px;
+}
+
+.confirmDeleteContainer .del {
+    background-color: #e24c4b;
+}

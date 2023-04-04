@@ -43,6 +43,8 @@ export const Header = () => {
                         <NavDropdown.Item href="#action3">Login</NavDropdown.Item>
                         <NavDropdown.Item href="#action3">Register</NavDropdown.Item>
                     </NavDropdown> */}
+
+                    {/* TODO: make this disabled/enabled */}
                     <div style={{ 'paddingLeft': '639px', 'display': 'flex' }}>
                         <Nav.Link href="/register">Register</Nav.Link>
                         <Nav.Link href="/login">Login</Nav.Link>

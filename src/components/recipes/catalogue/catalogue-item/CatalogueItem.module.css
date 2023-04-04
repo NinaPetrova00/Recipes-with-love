@@ -17,6 +17,7 @@
 .item img {
   width: 350px;
   height: 350px;
+  border-radius: 3%;
 }
 
 .catalogue {

@@ -17,6 +17,7 @@ import { Create } from './components/recipes/create/Create';
 import './App.css';
 import * as recipeService from './components/service/RecipeService';
 import { RecipeContext } from './context/RecipeContext';
+import { Delete } from './components/recipes/delete/Delete';
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -50,7 +51,8 @@ function App() {
 
         <Route path='/details/:recipeId' element={<Details />} />
         <Route path='/edit/:recipeId' element={<Edit />} />
-
+        <Route path='/delete/:recipeId' element={<Delete />} />
+        
         <Route path='/create' element={<Create />} />
 
       </Routes>

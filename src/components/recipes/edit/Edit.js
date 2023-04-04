@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom"
 import * as recipeService from '../../service/RecipeService';
-import Form from 'react-bootstrap/Form';
 
 import styles from '../create/Create.module.css';
 
@@ -44,7 +43,13 @@ export const Edit = () => {
     //         document.getElementById("custom-switch-lactoseFree").checked = true;
     //     }
     // }
-
+    console.log('title: ', currentRecipe.title);
+    console.log('vegan ', currentRecipe.vegan);
+    console.log('vegetarian ', currentRecipe.vegetarian);
+    console.log('highProtein ', currentRecipe.highProtein);
+    console.log('lowSugar ', currentRecipe.lowSugar);
+    console.log('glutenFree ', currentRecipe.glutenFree);
+    console.log('lacotseFree ', currentRecipe.lactosefree);
     const onSubmitHandler = async (ev) => {
 
         ev.preventDefault();
@@ -55,10 +60,16 @@ export const Edit = () => {
         // const title = formData.get('title');
         // console.log(title);
         // console.log({updatedData});
-        console.log(updatedData.title);
-
+        console.log("After edit")
+        console.log('title: ', updatedData.title);
+        console.log('vegan ', updatedData.vegan);
+        console.log('vegetarian ', updatedData.vegetarian);
+        console.log('highProtein ', updatedData.highProtein);
+        console.log('lowSugar ', updatedData.lowSugar);
+        console.log('glutenFree ', updatedData.glutenFree);
+        console.log('lacotseFree ', updatedData.lactosefree);
         recipeService.editRecipe(recipeId, updatedData);
-        console.log(Boolean(updatedData.vegan));
+
         // TODO: fix the navigate
         //navigate('/catalogue/vegan');
     };
@@ -123,17 +134,25 @@ export const Edit = () => {
                 <div className={styles.recipeTypeContainer}>
                     <h4>Choose recipe's type</h4>
                     <div className={styles.recipeTypeSwitch}>
-                        {/* <Form>
-                            <Form.Check type="switch" id="vegan" name="vegan" label="Vegan" onLoad={checkRecipeType()} />
-                            <Form.Check type="switch" id="custom-switch-vegetarian" label="Vegetarian" onLoad={checkRecipeType()} />
-                            <Form.Check type="switch" id="custom-switch-highProtein" label="High Protein" onLoad={checkRecipeType()} />
-                        </Form>
-                        <Form>
-                            <Form.Check type="switch" id="custom-switch-lowSugar" label="Low Sugar" onLoad={checkRecipeType()} />
-                            <Form.Check type="switch" id="custom-switch-glutenFree" label="Gluten Free" onLoad={checkRecipeType()} />
-                            <Form.Check type="switch" id="custom-switch-lactoseFree" label="Lactoce Free" onLoad={checkRecipeType()} /> */}
-                        {/* <Form.Check type="switch" id="custom-switch" label="Regular recipe" /> */}
-                        {/* </Form> */}
+                        <label htmlFor="vegan">
+                            <input type="checkbox" id="vegan" name="vegan" value="yes" checked={currentRecipe.vegan} />  Vegan
+                            <span className={styles.checkmark}></span>
+                        </label>
+                        <label htmlFor="vegetarian">
+                            <input type="checkbox" id="vegetarian" name="vegetarian" value="yes" checked={currentRecipe.vegetarian} />Vegetarian
+                        </label>
+                        <label htmlFor="highProtein">
+                            <input type="checkbox" id="highProtein" name="highProtein" value="yes" checked={currentRecipe.highProtein} />High Protein
+                        </label>
+                        <label htmlFor="lowSugar">
+                            <input type="checkbox" id="lowSugar" name="lowSugar" value="yes" checked={currentRecipe.lowSugar} />Low Sugar
+                        </label>
+                        <label htmlFor="glutenFree">
+                            <input type="checkbox" id="glutenFree" name="glutenFree" value="yes" checked={currentRecipe.glutenFree} />Gluten Free
+                        </label>
+                        <label htmlFor="lactoseFree">
+                            <input type="checkbox" id="lactoseFree" name="lactoseFree" value="yes" checked={currentRecipe.lactosefree} />Lacotse Free
+                        </label>
 
                     </div>
 

@@ -8,12 +8,33 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 export const Create = () => {
     const navigate = useNavigate();
-    const onSubmitHandler = async (ev) => {
+    const onSubmitHandler = (ev) => {
 
         ev.preventDefault();
 
         const recipeData = Object.fromEntries(new FormData(ev.target));
+        // console.log('title: ', recipeData.title);
+        // console.log('vegan ', recipeData.vegan);
+        // console.log('vegetarian ', recipeData.vegetarian);
+        // console.log('highProtein ', recipeData.highProtein);
+        // console.log('lowSugar ', recipeData.lowSugar);
+        // console.log('glutenFree ', recipeData.glutenFree);
+        // console.log('lacotseFree ', recipeData.lactosefree);
+
+        // console.log('testing: ', recipeData.highProtein ? "yes" : "no");
+
+        // console.log('highProtein vol 2', recipeData.highProtein);
+        setChechboxesValue(recipeData);
         recipeService.addNewRecipe(recipeData);
+    };
+
+    const setChechboxesValue = (recipeData) => {
+        recipeData.vegan = recipeData.vegan ? "yes" : "no";
+        recipeData.vegetarian = recipeData.vegetarian ? "yes" : "no";
+        recipeData.highProtein = recipeData.highProtein ? "yes" : "no";
+        recipeData.lowSugar = recipeData.lowSugar ? "yes" : "no";
+        recipeData.glutenFree = recipeData.glutenFree ? "yes" : "no";
+        recipeData.lactosefree = recipeData.lactosefree ? "yes" : "no";
     };
 
     return (
@@ -71,37 +92,27 @@ export const Create = () => {
                 <div className={styles.recipeTypeContainer}>
                     <h4>Choose recipe's type</h4>
                     <div className={styles.recipeTypeSwitch}>
-                        <label for="vegan">
+                        <label htmlFor="vegan">
                             <input type="checkbox" id="vegan" name="vegan" value="yes" />  Vegan
                             <span className={styles.checkmark}></span>
                         </label>
-                        <label for="vegetarian">
+                        <label htmlFor="vegetarian">
                             <input type="checkbox" id="vegetarian" name="vegetarian" value="yes" />Vegetarian
                         </label>
-                        <label for="highProtein">
+                        <label htmlFor="highProtein">
                             <input type="checkbox" id="highProtein" name="highProtein" value="yes" />High Protein
                         </label>
-                        <label for="lowSugar">
+                        <label htmlFor="lowSugar">
                             <input type="checkbox" id="lowSugar" name="lowSugar" value="yes" />Low Sugar
                         </label>
-                        <label for="glutenFree">
+                        <label htmlFor="glutenFree">
                             <input type="checkbox" id="glutenFree" name="glutenFree" value="yes" />Gluten Free
                         </label>
-                        <label for="lactoseFree">
+                        <label htmlFor="lactoseFree">
                             <input type="checkbox" id="lactoseFree" name="lactoseFree" value="yes" />Lacotse Free
                         </label>
-                        {/* <InputGroup className="mb-3">
-                            <InputGroup.Checkbox  value="yes" name="vegan" />Vegan
-                            <InputGroup.Checkbox aria-label="Checkbox for following text input" value="yes" name="vegetarian" />Vegetarian
-                            <InputGroup.Checkbox aria-label="Checkbox for following text input" value="yes" name="highProtein" />High Protein
-                            <InputGroup.Checkbox aria-label="Checkbox for following text input" value="yes" name="lowSugar" />lowSugar
-                            <InputGroup.Checkbox aria-label="Checkbox for following text input" value="yes" name="glutenFree" />Gluten Free
-                            <InputGroup.Checkbox aria-label="Checkbox for following text input" value="yes" name="lactoseFree" />Lactose Free
-                        </InputGroup> */}
                     </div>
-
                 </div>
-
 
                 <input
                     className={styles.createBtn}

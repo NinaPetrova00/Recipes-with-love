@@ -64,13 +64,12 @@ export const editRecipe = async (recipeId, updatedData) => {
         title: updatedData.title,
         imageUrl: updatedData.imageUrl,
         cookingTime: updatedData.cookingTime,
-
-        // vegan: Boolean(updatedData.vegan),
-        // vegetarian: updatedData.vegetarian,
-        // highProtein: updatedData.highProtein,
-        // lowSugar: updatedData.lowSugar,
-        // glutenFree: updatedData.glutenFree,
-        // lactosefree: updatedData.lactosefree,
+        vegan: updatedData.vegan,
+        vegetarian: updatedData.vegetarian,
+        highProtein: updatedData.highProtein,
+        lowSugar: updatedData.lowSugar,
+        glutenFree: updatedData.glutenFree,
+        lactosefree: updatedData.lactosefree,
 
         //   TODO: ingredients, cookingSteps, cookingType
     });

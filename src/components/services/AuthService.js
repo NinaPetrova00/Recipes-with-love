@@ -37,6 +37,12 @@ export const login = async (email, password) => {
 };
 
 export const logout = async () => {
+    try {
+        await signOut(auth);
+        console.log("Succesfully logged out")
+    } catch (error) {
+        console.log(error);
 
-    await signOut(auth);
+    }
+
 };

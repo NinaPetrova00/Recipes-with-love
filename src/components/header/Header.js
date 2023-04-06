@@ -13,13 +13,13 @@ import { AuthContext } from '../../context/AuthContext';
 
 export const Header = () => {
 
-    const  value  = useContext(AuthContext);
-    console.log("VALUE: ", value.email);
+    const value = useContext(AuthContext);
+    console.log("VALUE: ", value?.email);
 
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
-<div>{value.email}</div>
+                <div>{value?.email}</div>
                 <Nav
                     className="me-auto my-2 my-lg-0"
                     style={{ maxHeight: '100px' }}
@@ -57,7 +57,8 @@ export const Header = () => {
                     <div style={{ 'paddingLeft': '639px', 'display': 'flex' }}>
                         <Nav.Link href="/register">Register</Nav.Link>
                         <Nav.Link href="/login">Login</Nav.Link>
-                        <Nav.Link href="#action2" disabled>Logout</Nav.Link>
+                        {/* <Nav.Link href="/logout" disabled>Logout</Nav.Link> */}
+                        <Nav.Link href="/logout" >Logout</Nav.Link>
                     </div>
                     <Nav.Link href="/create" >Add recipe</Nav.Link>
                 </Nav>

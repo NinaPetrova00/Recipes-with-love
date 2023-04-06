@@ -35,7 +35,7 @@ export const Login = () => {
                     <Link to="/register"> Register here</Link>
                 </p>
 
-                <div className={styles.clearfix}>
+                <div>
                     <button
                         type="submit"
                         className={styles.loginbtn}
@@ -46,8 +46,6 @@ export const Login = () => {
                     </button>
                 </div >
             </div>
-
-
         </form>
     );
 }

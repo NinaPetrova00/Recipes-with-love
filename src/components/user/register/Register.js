@@ -52,7 +52,7 @@ export const Register = () => {
                     <Link to="/login"> Login here</Link>
                 </p>
 
-                <div className={styles.clearfix}>
+                <div>
                     <button type="submit" className={styles.loginbtn} name="login">Register</button>
                 </div >
             </div>

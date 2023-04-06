@@ -4,19 +4,22 @@ import { useContext, useEffect, useState } from 'react';
 import { Header } from './components/header/Header';
 import { Home } from './components/home/Home';
 import { Catalogue } from './components/recipes/catalogue/Catalogue';
-import { CatalogueItem } from './components/recipes/catalogue/catalogue-item/CatalogueItem';
-import { Login } from './components/user/login/Login';
-import { Register } from './components/user/register/Register';
 import { Details } from './components/recipes/details/Details';
 import { Edit } from './components/recipes/edit/Edit';
 import { Create } from './components/recipes/create/Create';
+import { Delete } from './components/recipes/delete/Delete';
+
+import { Login } from './components/user/login/Login';
+import { Register } from './components/user/register/Register';
+import { Logout } from './components/user/logout/Logout';
+
+
 import './App.css';
 import * as recipeService from './components/services/RecipeService';
 
 import { RecipeContext } from './context/RecipeContext';
 import { AuthContext, AuthProvider } from './context/AuthContext';
 
-import { Delete } from './components/recipes/delete/Delete';
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -41,7 +44,9 @@ function App() {
           <Route path="/" element={<Home />}></Route>
 
           <Route path='/login' element={<Login />} />
+          <Route path='/logout' element={<Logout />} />
           <Route path='/register' element={<Register />} />
+
 
           <Route path='/catalogue/vegan' element={<Catalogue recipeType={"vegan"} ></Catalogue>}></Route>
           <Route path='/catalogue/vegetarian' element={<Catalogue recipeType={"vegetarian"} ></Catalogue>}></Route>

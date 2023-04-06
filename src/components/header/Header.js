@@ -7,19 +7,22 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 
 export const Header = () => {
 
-    const value = useContext(AuthContext);
-    console.log("VALUE: ", value?.email);
+    const user = useContext(AuthContext);
+
+    // when there is logged user - login and registered btns are disabled, but loggout btn is enabled
+    let isDisabledLoginRegisterBtn = user?.email ? true : false;
+    // when there isn't logged user - login and registered btns are enabled, but loggout btn is disabled
+    let isDisabledLogoutBtn = user?.email ? false : true;
 
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
-                <div>{value?.email}</div>
+                {/* <div>{user?.email}</div> */}
                 <Nav
                     className="me-auto my-2 my-lg-0"
                     style={{ maxHeight: '100px' }}
@@ -53,12 +56,10 @@ export const Header = () => {
                         <NavDropdown.Item href="#action3">Register</NavDropdown.Item>
                     </NavDropdown> */}
 
-                    {/* TODO: make this disabled/enabled */}
                     <div style={{ 'paddingLeft': '639px', 'display': 'flex' }}>
-                        <Nav.Link href="/register">Register</Nav.Link>
-                        <Nav.Link href="/login">Login</Nav.Link>
-                        {/* <Nav.Link href="/logout" disabled>Logout</Nav.Link> */}
-                        <Nav.Link href="/logout" >Logout</Nav.Link>
+                        <Nav.Link href="/register" disabled={isDisabledLoginRegisterBtn}>Register</Nav.Link>
+                        <Nav.Link href="/login" disabled={isDisabledLoginRegisterBtn}>Login</Nav.Link>
+                        <Nav.Link href="/logout" disabled={isDisabledLogoutBtn} >Logout</Nav.Link>
                     </div>
                     <Nav.Link href="/create" >Add recipe</Nav.Link>
                 </Nav>

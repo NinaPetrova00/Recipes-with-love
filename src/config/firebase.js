@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 // for authentication
 import { getAuth } from 'firebase/auth';
-// CRUD
+// for CRUD
 import { getFirestore } from "firebase/firestore";
 
 
@@ -25,5 +25,5 @@ const app = initializeApp(firebaseConfig);
 // authentication
 export const auth = getAuth(app);
 
-// crud
+// CRUD
 export const db = getFirestore(app);

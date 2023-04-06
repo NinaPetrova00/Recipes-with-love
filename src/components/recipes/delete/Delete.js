@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import * as recipeService from '../../service/RecipeService';
+import * as recipeService from '../../services/RecipeService';
 import { Details } from "../details/Details";
 
 import styles from './Delete.module.css';

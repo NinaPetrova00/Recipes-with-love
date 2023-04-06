@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import * as recipeService from '../../../service/RecipeService';
+import * as recipeService from '../../../services/RecipeService';
 
 import styles from './CatalogueItem.module.css';
 

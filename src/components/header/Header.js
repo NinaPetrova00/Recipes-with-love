@@ -7,10 +7,19 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+
 export const Header = () => {
+
+    const  value  = useContext(AuthContext);
+    console.log("VALUE: ", value.email);
+
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
+<div>{value.email}</div>
                 <Nav
                     className="me-auto my-2 my-lg-0"
                     style={{ maxHeight: '100px' }}

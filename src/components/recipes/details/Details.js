@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import * as recipeSerive from '../../service/RecipeService';
+import * as recipeSerive from '../../services/RecipeService';
 
 import styles from "./Details.module.css";
 import { useEffect, useState } from "react";

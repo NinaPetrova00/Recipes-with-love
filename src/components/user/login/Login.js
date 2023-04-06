@@ -1,15 +1,26 @@
 import { auth } from "../../../config/firebase";
 import { loginUser } from 'firebase/auth';
-
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import styles from "./Login.module.css";
 import { useState } from "react";
+import * as authService from '../../services/AuthService';
 
 export const Login = () => {
+    const navigate = useNavigate();
+    const onSubmitHandler = (ev) => {
+        ev.preventDefault();
+
+        const { email, password } = Object.fromEntries(new FormData(ev.target));
+        console.log(email, " ", password);
+
+        authService.login(email, password);
+        navigate('/');
+    };
 
     return (
-        <form className={styles.userForm} >
+        <form className={styles.userForm} onSubmit={onSubmitHandler}>
             <div className={styles.container}>
                 <h2>Login</h2>
 
@@ -29,12 +40,14 @@ export const Login = () => {
                         type="submit"
                         className={styles.loginbtn}
                         name="login"
-                       // onClick={loginHandler} 
-                         >
+                    // onClick={loginHandler} 
+                    >
                         Login
                     </button>
                 </div >
             </div>
+
+
         </form>
     );
 }

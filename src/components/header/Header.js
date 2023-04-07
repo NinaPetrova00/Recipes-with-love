@@ -37,7 +37,7 @@ export const Header = () => {
                         <NavDropdown.Item href="/catalogue/glutenFree">Gluten free</NavDropdown.Item>
                         <NavDropdown.Item href="/catalogue/lactoseFree">Lactose free</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="/myRecipes" disabled>
+                        <NavDropdown.Item href="/myRecipes"  disabled={isDisabledLogoutBtn}>
                             My recipes
                         </NavDropdown.Item>
                     </NavDropdown>
@@ -56,7 +56,6 @@ export const Header = () => {
                         <NavDropdown.Item href="#action3">Register</NavDropdown.Item>
                     </NavDropdown> */}
                     <div className={styles.usernameContainer}>
-                        {/* <p>Welcome, {user?.email} !</p> */}
                         {user ?
                             <Nav.Link>Welcome, {user.email} !</Nav.Link>
                             : <></>

@@ -19,6 +19,7 @@ import * as recipeService from './components/services/RecipeService';
 
 import { RecipeContext } from './context/RecipeContext';
 import { AuthContext, AuthProvider } from './context/AuthContext';
+import { UserSrecipes } from './components/recipes/userRecipes/UserRecipes';
 
 
 function App() {
@@ -54,8 +55,9 @@ function App() {
           <Route path='/catalogue/lowSugar' element={<Catalogue recipeType={"lowSugar"}></Catalogue>}></Route>
           <Route path='/catalogue/glutenFree' element={<Catalogue recipeType={"glutenFree"} ></Catalogue>}></Route>
           <Route path='/catalogue/lactoseFree' element={<Catalogue recipeType={"lactoseFree"} ></Catalogue>}></Route>
-
           <Route path='/catalogue/lactoseFree' element={<Catalogue recipeType={"lactoseFree"} ></Catalogue>}></Route>
+
+          <Route path='/myRecipes' element={<UserSrecipes></UserSrecipes>}></Route>
 
           <Route path='/details/:recipeId' element={<Details />} />
           <Route path='/edit/:recipeId' element={<Edit />} />

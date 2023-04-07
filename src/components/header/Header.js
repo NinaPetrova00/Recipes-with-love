@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import styles from './Header.module.css';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -41,7 +41,7 @@ export const Header = () => {
                             My recipes
                         </NavDropdown.Item>
                     </NavDropdown>
-                    <NavDropdown title="Meal Type" id="navbarScrollingDropdown">
+                    {/* <NavDropdown title="Meal Type" id="navbarScrollingDropdown">
                         <NavDropdown.Item href="#action3">Breakfast</NavDropdown.Item>
                         <NavDropdown.Item href="#action3">Lunch</NavDropdown.Item>
                         <NavDropdown.Item href="#action4">Dinner</NavDropdown.Item>
@@ -50,18 +50,26 @@ export const Header = () => {
                         <NavDropdown.Item href="#action5">
                             Something else here
                         </NavDropdown.Item>
-                    </NavDropdown>
+                    </NavDropdown> */}
                     {/* <NavDropdown title="Account" id="navbarScrollingDropdown">
                         <NavDropdown.Item href="#action3">Login</NavDropdown.Item>
                         <NavDropdown.Item href="#action3">Register</NavDropdown.Item>
                     </NavDropdown> */}
+                    <div className={styles.usernameContainer}>
+                        {/* <p>Welcome, {user?.email} !</p> */}
+                        {user ?
+                            <Nav.Link>Welcome, {user.email} !</Nav.Link>
+                            : <></>
+                        }
 
-                    <div style={{ 'paddingLeft': '639px', 'display': 'flex' }}>
+                    </div>
+                    <div className={styles.customContainer}>
                         <Nav.Link href="/register" disabled={isDisabledLoginRegisterBtn}>Register</Nav.Link>
                         <Nav.Link href="/login" disabled={isDisabledLoginRegisterBtn}>Login</Nav.Link>
                         <Nav.Link href="/logout" disabled={isDisabledLogoutBtn} >Logout</Nav.Link>
+                        <Nav.Link href="/create" >Add recipe</Nav.Link>
                     </div>
-                    <Nav.Link href="/create" >Add recipe</Nav.Link>
+
                 </Nav>
                 <Form className="d-flex">
                     <Form.Control

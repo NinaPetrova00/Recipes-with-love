@@ -1,0 +1,16 @@
+.customContainer {
+    display: flex;
+    padding-left: 639px;
+}
+
+
+.customContainer a:hover {
+    background-color: #cee6f4;
+    border-radius: 10%;
+}
+
+.usernameContainer a{
+    font-family: 'Alkatra';
+    cursor: default;
+    width: 200px;
+}

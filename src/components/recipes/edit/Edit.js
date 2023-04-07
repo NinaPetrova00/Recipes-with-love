@@ -19,7 +19,7 @@ export const Edit = () => {
 
     const onSubmitHandler = async (ev) => {
 
-        //ev.preventDefault();
+        ev.preventDefault();
 
         const updatedData = Object.fromEntries(new FormData(ev.target));
         updatedData.vegan = currentRecipe.vegan == "yes" ? "yes" : "no";
@@ -43,10 +43,11 @@ export const Edit = () => {
         // console.log('lowSugar ', updatedData.lowSugar);
         // console.log('glutenFree ', updatedData.glutenFree);
         // console.log('lacotoseFree ', updatedData.lactosefree);
+        console.log("Ingredients: ", updatedData.ingredients);
         recipeService.editRecipe(recipeId, updatedData);
 
         // TODO: fix the navigate
-        //navigate('/catalogue/vegan');
+        navigate('/catalogue/vegan');
     };
 
     // TODO: fix recipe types

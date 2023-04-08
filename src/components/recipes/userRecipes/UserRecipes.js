@@ -4,7 +4,7 @@ import styles from './UserRecipes.module.css';
 export const UserSrecipes = () => {
     return (
         <>
-        //TODO: check if the user have recipes or no 
+        {/* //TODO: check if the user have recipes or no  */}
             <div className={styles.noRecipesContainer}>
                 <h2>You have not added any recipes yet. If you want to add,  <Link to="/create" className={styles.link}>
                     click here!

@@ -37,7 +37,7 @@ export const Header = () => {
                         <NavDropdown.Item href="/catalogue/glutenFree">Gluten free</NavDropdown.Item>
                         <NavDropdown.Item href="/catalogue/lactoseFree">Lactose free</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="/myRecipes"  disabled={isDisabledLogoutBtn}>
+                        <NavDropdown.Item href="/myRecipes" disabled={isDisabledLogoutBtn}>
                             My recipes
                         </NavDropdown.Item>
                     </NavDropdown>
@@ -55,18 +55,18 @@ export const Header = () => {
                         <NavDropdown.Item href="#action3">Login</NavDropdown.Item>
                         <NavDropdown.Item href="#action3">Register</NavDropdown.Item>
                     </NavDropdown> */}
+
                     <div className={styles.usernameContainer}>
                         {user ?
                             <Nav.Link>Welcome, {user.email} !</Nav.Link>
                             : <></>
                         }
-
                     </div>
-                    <div className={styles.customContainer}>
+                    <div className={user ? styles.customContainerUser : styles.customContainerNoUser}>
                         <Nav.Link href="/register" disabled={isDisabledLoginRegisterBtn}>Register</Nav.Link>
                         <Nav.Link href="/login" disabled={isDisabledLoginRegisterBtn}>Login</Nav.Link>
                         <Nav.Link href="/logout" disabled={isDisabledLogoutBtn} >Logout</Nav.Link>
-                        <Nav.Link href="/create" >Add recipe</Nav.Link>
+                        <Nav.Link href="/create" disabled={isDisabledLogoutBtn} >Add recipe</Nav.Link>
                     </div>
 
                 </Nav>

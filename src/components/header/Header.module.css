@@ -1,16 +1,22 @@
-.customContainer {
+.customContainerUser {
     display: flex;
-    padding-left: 639px;
+    padding-left: 500px;
 }
 
+.customContainerNoUser {
+    display: flex;
+    padding-left: 724px;
+}
 
-.customContainer a:hover {
+.customContainerUser a:hover,
+.customContainerNoUser a:hover {
     background-color: #cee6f4;
     border-radius: 10%;
 }
 
-.usernameContainer a{
+.usernameContainer a {
     font-family: 'Alkatra';
     cursor: default;
     width: 200px;
+    padding-left: 15px;
 }

@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 
-    // user who is currently logged in
+    // user who is currently logged in user
     const [user, setUser] = useState({});
 
     // onAuthStateChanged - every time when there is change in the authState
@@ -15,7 +15,6 @@ export const AuthProvider = ({ children }) => {
         setUser(currentUser);
     });
     // const id = user.uid;
-
 
     return (
         <AuthContext.Provider value={user}>

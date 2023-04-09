@@ -2,9 +2,13 @@ import { Link } from 'react-router-dom';
 import * as recipeService from '../../../services/RecipeService';
 
 import styles from './CatalogueItem.module.css';
+import { useContext } from 'react';
+import { AuthContext } from '../../../../context/AuthContext';
 
 export const CatalogueItem = ({ recipe }) => {
-  
+    const user = useContext(AuthContext);
+
+    const isCreator = user.uid === recipe.creatorId;
     return (
 
         <div className={styles.item}>
@@ -17,20 +21,21 @@ export const CatalogueItem = ({ recipe }) => {
             </div>
 
             {/* //TODO: only show this button when this is current user's recipe */}
-            <div className={styles.editDelDiv}>
+            {isCreator &&
+                <div className={styles.editDelDiv}>
+                    <Link to={`/edit/${recipe.id}`}>
+                        <button className={styles.editBtn}>
+                            <img src={process.env.PUBLIC_URL + '/images/editIcon.png'} />
+                        </button>
+                    </Link>
 
-                <Link to={`/edit/${recipe.id}`}>
-                    <button className={styles.editBtn}>
-                        <img src={process.env.PUBLIC_URL + '/images/editIcon.png'} />
-                    </button>
-                </Link>
-
-                <Link to={`/delete/${recipe.id}`}>
-                    <button className={styles.deleteBtn}>
-                        <img src={process.env.PUBLIC_URL + '/images/deleteIcon.png'} />
-                    </button>
-                </Link>
-            </div>
+                    <Link to={`/delete/${recipe.id}`}>
+                        <button className={styles.deleteBtn}>
+                            <img src={process.env.PUBLIC_URL + '/images/deleteIcon.png'} />
+                        </button>
+                    </Link>
+                </div>
+            }
         </div>
     );
 }

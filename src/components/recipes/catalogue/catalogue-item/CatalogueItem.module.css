@@ -63,3 +63,23 @@
 .catalogue .deleteBtn {
   background-color: #ff000082;
 }
+
+.noRecipesContainer {
+  background-color: #4b9ac452;
+  font-family: 'Alkatra';
+  border-radius: 15px;
+  text-align: center;
+  padding: 29px 15px;
+  margin: 35px 400px;
+  box-shadow: 0px 25px 40px #4788b733
+}
+
+.noRecipesContainer .link {
+  text-decoration: none;
+  color: #c35198;
+}
+
+.noRecipesContainer img {
+  width: 30px;
+  height: 30px;
+}

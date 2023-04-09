@@ -17,3 +17,47 @@
     width: 30px;
     height: 30px;
 }
+
+.recipes {
+    display: flex;
+    align-content: space-between;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.recipes .detailsDiv {
+    padding: 15px;
+}
+
+.recipes .detailsBtn,
+.recipes .editBtn,
+.recipes .deleteBtn {
+    border-radius: 10%;
+    padding: 7px 14px;
+    font-family: 'Alkatra';
+    font-size: 20px;
+}
+
+.recipes .detailsBtn {
+    background-color: #9679694d;
+}
+
+.recipes .editDelDiv img {
+    width: 30px;
+    height: 30px;
+}
+
+.recipes .editBtn,
+.recipes .deleteBtn {
+    margin-right: 15px;
+}
+
+.recipes .editBtn {
+    background-color: #85b7ca;
+}
+
+.recipes .deleteBtn {
+    background-color: #ff000082;
+}

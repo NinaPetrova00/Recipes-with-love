@@ -23,6 +23,7 @@ import { UserSrecipes } from './components/recipes/userRecipes/UserRecipes';
 
 
 function App() {
+
   const [recipes, setRecipes] = useState([]);
 
   // const { user } = useContext(AuthContext);
@@ -32,7 +33,6 @@ function App() {
       .then(result =>
         setRecipes(result));
   }, []);
-
 
   return (
     <div>

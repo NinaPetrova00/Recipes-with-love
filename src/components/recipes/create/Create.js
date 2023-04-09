@@ -5,9 +5,14 @@ import * as recipeService from '../../services/RecipeService';
 import styles from './Create.module.css';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { useContext } from 'react';
+import { AuthContext } from '../../../context/AuthContext';
 
 export const Create = () => {
     const navigate = useNavigate();
+    const user = useContext(AuthContext);
+    const creatorId = user.uid;
+
     const onSubmitHandler = (ev) => {
 
         ev.preventDefault();
@@ -20,10 +25,9 @@ export const Create = () => {
         // console.log('lowSugar ', recipeData.lowSugar);
         // console.log('glutenFree ', recipeData.glutenFree);
         // console.log('lacotseFree ', recipeData.lactosefree);
-
         // console.log('testing: ', recipeData.highProtein ? "yes" : "no");
-
         // console.log('highProtein vol 2', recipeData.highProtein);
+        recipeData.creatorId = creatorId;
         setChechboxesValue(recipeData);
         recipeService.addNewRecipe(recipeData);
     };

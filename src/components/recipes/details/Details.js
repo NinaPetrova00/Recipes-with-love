@@ -42,6 +42,7 @@ export const Details = () => {
                 </div>
             </div>
 
+            {/* //TODO: add comments */}
             <div className={styles.comments}>
                 <h3>Customers' comments:</h3>
                 <ul>

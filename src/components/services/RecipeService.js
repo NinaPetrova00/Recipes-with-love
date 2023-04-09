@@ -55,6 +55,26 @@ export const getRecipesByType = async (recipeType) => {
     }
 };
 
+//    TODO: get all recipes where userId = userId 
+export const getCurretUserRecipes = async (userId) => {
+
+    try {
+        const dbData = query(collection(db, collectionName), where("creatorId", "==", userId));
+        const resultData = await getDocs(dbData);
+
+        const result = resultData.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id
+        }));
+
+        return result;
+
+    } catch (error) {
+        console.log(error);
+
+    }
+};
+
 
 // UPDATE
 export const editRecipe = async (recipeId, updatedData) => {
@@ -71,7 +91,7 @@ export const editRecipe = async (recipeId, updatedData) => {
         glutenFree: updatedData.glutenFree,
         lactoseFree: updatedData.lactoseFree,
         ingredients: updatedData.ingredients,
-        cookingSteps:updatedData.cookingSteps,
+        cookingSteps: updatedData.cookingSteps,
     });
 }
 

@@ -37,7 +37,7 @@ export const Header = () => {
                         <NavDropdown.Item href="/catalogue/glutenFree">Gluten free</NavDropdown.Item>
                         <NavDropdown.Item href="/catalogue/lactoseFree">Lactose free</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="/myRecipes" disabled={isDisabledLogoutBtn}>
+                        <NavDropdown.Item href="/catalogue/myRecipes" disabled={isDisabledLogoutBtn}>
                             My recipes
                         </NavDropdown.Item>
                     </NavDropdown>

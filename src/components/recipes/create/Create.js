@@ -16,20 +16,11 @@ export const Create = () => {
     const onSubmitHandler = (ev) => {
 
         ev.preventDefault();
-
         const recipeData = Object.fromEntries(new FormData(ev.target));
-        // console.log('title: ', recipeData.title);
-        // console.log('vegan ', recipeData.vegan);
-        // console.log('vegetarian ', recipeData.vegetarian);
-        // console.log('highProtein ', recipeData.highProtein);
-        // console.log('lowSugar ', recipeData.lowSugar);
-        // console.log('glutenFree ', recipeData.glutenFree);
-        // console.log('lacotseFree ', recipeData.lactosefree);
-        // console.log('testing: ', recipeData.highProtein ? "yes" : "no");
-        // console.log('highProtein vol 2', recipeData.highProtein);
         recipeData.creatorId = creatorId;
         setChechboxesValue(recipeData);
         recipeService.addNewRecipe(recipeData);
+        navigate('/catalogue/myRecipes');
     };
 
     const setChechboxesValue = (recipeData) => {

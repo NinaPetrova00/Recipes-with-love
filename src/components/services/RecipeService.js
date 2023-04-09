@@ -55,7 +55,6 @@ export const getRecipesByType = async (recipeType) => {
     }
 };
 
-//    TODO: get all recipes where userId = userId 
 export const getCurretUserRecipes = async (userId) => {
 
     try {

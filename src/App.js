@@ -56,8 +56,7 @@ function App() {
           <Route path='/catalogue/glutenFree' element={<Catalogue recipeType={"glutenFree"} ></Catalogue>}></Route>
           <Route path='/catalogue/lactoseFree' element={<Catalogue recipeType={"lactoseFree"} ></Catalogue>}></Route>
           <Route path='/catalogue/lactoseFree' element={<Catalogue recipeType={"lactoseFree"} ></Catalogue>}></Route>
-
-          <Route path='/myRecipes' element={<UserSrecipes></UserSrecipes>}></Route>
+          <Route path='/catalogue/myRecipes' element={<UserSrecipes></UserSrecipes>}></Route>
 
           <Route path='/details/:recipeId' element={<Details />} />
           <Route path='/edit/:recipeId' element={<Edit />} />

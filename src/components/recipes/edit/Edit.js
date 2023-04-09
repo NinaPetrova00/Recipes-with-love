@@ -8,7 +8,6 @@ export const Edit = () => {
     const [currentRecipe, setCurentRecipe] = useState({})
     const { recipeId } = useParams();
     const navigate = useNavigate();
-    const [isChecked, setIsChecked] = useState();
 
     useEffect(() => {
         recipeService.getOne(recipeId)
@@ -17,76 +16,41 @@ export const Edit = () => {
             })
     }, []);
 
+    // console.log('Current recipe:');
+    // console.log('Current recipe: vegan ', currentRecipe.vegan);
+    // console.log('Current recipe: vegetarian ', currentRecipe.vegetarian);
+    // console.log('Current recipe: highProtein ', currentRecipe.highProtein);
+    // console.log('Current recipe: lowSugar ', currentRecipe.lowSugar);
+    // console.log('Current recipe: glutenFree ', currentRecipe.glutenFree);
+    // console.log('Current recipe: lacotseFree ', currentRecipe.lactoseFree)
+
+
+
+    const [isVegan, setIsVegan] = useState(false);
+    const [isVegetarian, setIsVegetarian] = useState(false);
+    const [isHighProtein, setIsHighProtein] = useState(false);
+    const [isLowSugar, setIsLowSugar] = useState(false);
+    const [isGlutenFree, setIsGlutenFree] = useState(false);
+    const [isLactoseFree, setIsLactoseFree] = useState(false);
+
     const onSubmitHandler = async (ev) => {
 
         ev.preventDefault();
 
         const updatedData = Object.fromEntries(new FormData(ev.target));
-        updatedData.vegan = currentRecipe.vegan == "yes" ? "yes" : "no";
-        // let v = ev.target.checked ? "yes" : "no";
-        // updatedData.vegan = v;
-        updatedData.vegetarian = updatedData.vegetarian ? "yes" : "no";
-        updatedData.highProtein = updatedData.highProtein ? "yes" : "no";
-        updatedData.lowSugar = updatedData.lowSugar ? "yes" : "no";
-        updatedData.glutenFree = updatedData.glutenFree ? "yes" : "no";
-        updatedData.lactoseFree = updatedData.lactoseFree ? "yes" : "no";
-        // const uData = setChechboxesValue(currentRecipe);
-        // const formData = new FormData(ev.target);
-        // const title = formData.get('title');
-        // console.log(title);
-        // console.log({updatedData});
-        // console.log("After edit")
-        // console.log('title: ', updatedData.title);
-        // console.log('vegan ', updatedData.vegan);
-        // console.log('vegetarian ', updatedData.vegetarian);
-        // console.log('highProtein ', updatedData.highProtein);
-        // console.log('lowSugar ', updatedData.lowSugar);
-        // console.log('glutenFree ', updatedData.glutenFree);
-        // console.log('lacotoseFree ', updatedData.lactosefree);
-        console.log("Ingredients: ", updatedData.ingredients);
+
+        updatedData.vegan = isVegan ? "yes" : "no";
+        updatedData.vegetarian = isVegetarian ? "yes" : "no";
+        updatedData.highProtein = isHighProtein ? "yes" : "no";
+        updatedData.lowSugar = isLowSugar ? "yes" : "no";
+        updatedData.glutenFree = isGlutenFree ? "yes" : "no";
+        updatedData.lactoseFree = isLactoseFree ? "yes" : "no";
+
         recipeService.editRecipe(recipeId, updatedData);
 
-        // TODO: fix the navigate
-        navigate('/catalogue/vegan');
+        navigate('/catalogue/myRecipes');
     };
 
-    // TODO: fix recipe types
-    // const setChechboxesValue = (updatedData) => {
-    //     updatedData.vegan = updatedData.vegan ? "yes" : "no";
-    //     updatedData.vegetarian = updatedData.vegetarian ? "yes" : "no";
-    //     updatedData.highProtein = updatedData.highProtein ? "yes" : "no";
-    //     updatedData.lowSugar = updatedData.lowSugar ? "yes" : "no";
-    //     updatedData.glutenFree = updatedData.glutenFree ? "yes" : "no";
-    //     updatedData.lactoseFree = updatedData.lactoseFree ? "yes" : "no";
-    //     console.log('vegan ', updatedData.vegan);
-    //     console.log('vegetarian ', updatedData.vegetarian);
-    //     console.log('highProtein ', updatedData.highProtein);
-    //     console.log('lowSugar ', updatedData.lowSugar);
-    //     console.log('glutenFree ', updatedData.glutenFree);
-    //     console.log('lacotoseFree ', updatedData.lactoseFree);
-
-    //     return updatedData;
-    // };
-
-    // console.log('title: ', currentRecipe.title);
-    // console.log('vegan ', currentRecipe.vegan);
-    // console.log('vegetarian ', currentRecipe.vegetarian);
-    // console.log('highProtein ', currentRecipe.highProtein);
-    // console.log('lowSugar ', currentRecipe.lowSugar);
-    // console.log('glutenFree ', currentRecipe.glutenFree);
-    // console.log('lacotseFree ', currentRecipe.lacoseFree);
-
-    const handleChange = event => {
-        if (event.target.checked) {
-            console.log('✅ Checkbox is checked');
-        } else {
-            console.log('⛔️ Checkbox is NOT checked');
-        }
-
-        // todo: тук се взима стойността на новото цъкване/ънцъкване
-        //Todo: променят се в базата, само трябва да направя така че да се визуализират, май се промянят няколко наведнъж
-        // setIsSubscribed(current => !current);
-    };
 
     return (
         <form onSubmit={onSubmitHandler}>
@@ -148,23 +112,23 @@ export const Edit = () => {
                     <h4>Choose recipe's type</h4>
                     <div className={styles.recipeTypeSwitch}>
                         <label htmlFor="vegan">
-                            <input type="checkbox" id="vegan" name="vegan" value={currentRecipe.vegan ? "yes" : "no"} checked={currentRecipe.vegan ? true : false} />  Vegan
+                            <input type="checkbox" id="vegan" name="vegan" checked={isVegan} onChange={(ev) => setIsVegan(ev.target.checked)} />  Vegan
                             <span className={styles.checkmark}></span>
                         </label>
                         <label htmlFor="vegetarian">
-                            <input type="checkbox" id="vegetarian" name="vegetarian" value={currentRecipe.vegetarian ? "yes" : "no"}  checked={currentRecipe.vegetarian ? true : false}/>Vegetarian
+                            <input type="checkbox" id="vegetarian" name="vegetarian" checked={isVegetarian} onChange={(ev) => setIsVegetarian(ev.target.checked)} />Vegetarian
                         </label>
                         <label htmlFor="highProtein">
-                            <input type="checkbox" id="highProtein" name="highProtein" value={currentRecipe.highProtein ? "yes" : "no"} />High Protein
+                            <input type="checkbox" id="highProtein" name="highProtein" checked={isHighProtein} onChange={(ev) => setIsHighProtein(ev.target.checked)} />High Protein
                         </label>
                         <label htmlFor="lowSugar">
-                            <input type="checkbox" id="lowSugar" name="lowSugar" value={currentRecipe.lowSugar ? "yes" : "no"} />Low Sugar
+                            <input type="checkbox" id="lowSugar" name="lowSugar" checked={isLowSugar} onChange={(ev) => setIsLowSugar(ev.target.checked)} />Low Sugar
                         </label>
                         <label htmlFor="glutenFree">
-                            <input type="checkbox" id="glutenFree" name="glutenFree" value={currentRecipe.glutenFree ? "yes" : "no"} />Gluten Free
+                            <input type="checkbox" id="glutenFree" name="glutenFree" checked={isGlutenFree} onChange={(ev) => setIsGlutenFree(ev.target.checked)} />Gluten Free
                         </label>
                         <label htmlFor="lactoseFree">
-                            <input type="checkbox" id="lactoseFree" name="lactoseFree" value={currentRecipe.lactoseFree ? "yes" : "no"} />Lacotose Free
+                            <input type="checkbox" id="lactoseFree" name="lactoseFree" checked={isLactoseFree} onChange={(ev) => setIsLactoseFree(ev.target.checked)} />Lacotose Free
                         </label>
 
                     </div>
@@ -174,7 +138,7 @@ export const Edit = () => {
                 <input
                     className={styles.createBtn}
                     type="submit"
-                    value="Add recipe"
+                    value="Save recipe"
                 />
             </div>
         </form>

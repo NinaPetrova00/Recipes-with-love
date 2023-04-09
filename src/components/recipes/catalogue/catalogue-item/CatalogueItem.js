@@ -19,8 +19,7 @@ export const CatalogueItem = ({ recipe }) => {
                     <button className={styles.detailsBtn}>Details</button>
                 </Link>
             </div>
-
-            {/* //TODO: only show this button when this is current user's recipe */}
+            
             {isCreator &&
                 <div className={styles.editDelDiv}>
                     <Link to={`/edit/${recipe.id}`}>

@@ -1,5 +1,13 @@
+.catalogue {
+  display: flex;
+  align-content: space-between;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
 .item {
-  /* margin: auto; */
   margin: 15px;
   width: 30%;
   border: 3px solid #9679694d;
@@ -18,15 +26,6 @@
   width: 350px;
   height: 350px;
   border-radius: 3%;
-}
-
-.catalogue {
-  display: flex;
-  align-content: space-between;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 30px;
 }
 
 .catalogue .detailsDiv {

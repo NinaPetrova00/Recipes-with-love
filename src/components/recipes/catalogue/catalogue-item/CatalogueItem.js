@@ -8,7 +8,7 @@ import { AuthContext } from '../../../../context/AuthContext';
 export const CatalogueItem = ({ recipe }) => {
     const user = useContext(AuthContext);
 
-    const isCreator = user.uid === recipe.creatorId;
+    const isCreator = user?.uid === recipe.creatorId;
     return (
 
         <div className={styles.item}>

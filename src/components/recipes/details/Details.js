@@ -1,10 +1,14 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import * as recipeSerive from '../../services/RecipeService';
 
 import styles from "./Details.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+
+import { AuthContext } from "../../../context/AuthContext";
 
 export const Details = () => {
+    const user = useContext(AuthContext);
+
     const { recipeId } = useParams();
     const [currentRecipe, setCurentRecipe] = useState({});
 
@@ -43,17 +47,35 @@ export const Details = () => {
             </div>
 
             {/* //TODO: add comments */}
-            <div className={styles.comments}>
-                <h3>Customers' comments:</h3>
-                <ul>
-                    <li>
-                        <h5>Nikol</h5>
-                        <p>Very good recipe!</p> </li>
-                    <li>
-                        <h5>Maria</h5>
-                        <p>Easy and delicious!</p>
-                    </li>
-                </ul>
+            {/* //TODO: if there is logged in user - add comment btn is opened */}
+
+
+            <div className={styles.commentsContainer}>
+                <div className={styles.userComment}>
+                    {user ?
+                        <>
+                            <h3>Write your comment in the field below:</h3>
+                            <textarea placeholder="Nice recipe!"></textarea>
+                            <button>Add comment</button>
+                        </>
+                        : <p>
+                            To add comment,
+                            please <Link to="/login">login</Link> or <Link to="/register">register</Link></p>
+                    }
+                </div>
+                <div className={styles.comments}>
+                    <h3>Customers' comments:</h3>
+                    <ul>
+                        <li>
+                            <h5>Nikol</h5>
+                            <p>Very good recipe!</p> </li>
+                        <li>
+                            <h5>Maria</h5>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur, minima.</p>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </>
     );

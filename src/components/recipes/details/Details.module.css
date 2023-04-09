@@ -36,7 +36,8 @@
 
 .recipeContainer .ingredientsContainer,
 .recipeContainer .howToContainer,
-.comments {
+.comments,
+.userComment {
     background-color: #f8f9fa;
     border-radius: 10px;
     border: 2px solid #9679694d;
@@ -60,14 +61,37 @@
     padding: 15px;
 }
 
+.commentsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: -82px;
+    font-size: 20px;
+}
+
 .comments {
     margin: auto;
-    width: 33%;
+    width: 53%;
     text-align: center;
 }
 
+.userComment {
+    margin: auto;
+    width: 53%;
+    text-align: center;
+}
+
+.userComment button {
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 6px 14px;
+    font-family: 'Alkatra';
+    font-size: 19px;
+    background-color: #9679694d;
+}
+
 .comments h3,
-.comments h5 {
+.comments h5,
+.userComment h3 {
     font-family: 'Alkatra';
 }
 

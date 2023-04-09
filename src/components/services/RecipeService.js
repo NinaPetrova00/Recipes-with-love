@@ -1,4 +1,3 @@
-import * as dbService from './DBService';
 import { doc, getDocs, getDoc, collection, query, where, addDoc, updateDoc, arrayUnion, deleteDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 
@@ -92,7 +91,7 @@ export const editRecipe = async (recipeId, updatedData) => {
         ingredients: updatedData.ingredients,
         cookingSteps: updatedData.cookingSteps,
     });
-}
+};
 
 
 // DELETE
@@ -102,3 +101,13 @@ export const deleteRecipe = async (recipeId) => {
     await deleteDoc(recipeDoc);
 }
 
+// ADD comment 
+export const addComment = async (recipeId, newComment) => {
+    const recipeDoc = doc(db, collectionName, recipeId);
+
+    // To update some fields of a document without overwriting the entire document,
+    // use the following language-specific update() methods:
+    return await updateDoc(recipeDoc, {
+        comments: newComment
+    });
+}

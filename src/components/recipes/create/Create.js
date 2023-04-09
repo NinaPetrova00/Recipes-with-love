@@ -18,6 +18,7 @@ export const Create = () => {
         ev.preventDefault();
         const recipeData = Object.fromEntries(new FormData(ev.target));
         recipeData.creatorId = creatorId;
+        recipeData.comments='';
         setChechboxesValue(recipeData);
         recipeService.addNewRecipe(recipeData);
         navigate('/catalogue/myRecipes');

@@ -5,7 +5,14 @@ import * as recipeService from '../../services/RecipeService';
 import styles from '../create/Create.module.css';
 
 export const Edit = () => {
-    const [currentRecipe, setCurentRecipe] = useState({})
+    const [currentRecipe, setCurentRecipe] = useState({});
+    const [isVegan, setIsVegan] = useState(false);
+    const [isVegetarian, setIsVegetarian] = useState(false);
+    const [isHighProtein, setIsHighProtein] = useState(false);
+    const [isLowSugar, setIsLowSugar] = useState(false);
+    const [isGlutenFree, setIsGlutenFree] = useState(false);
+    const [isLactoseFree, setIsLactoseFree] = useState(false);
+
     const { recipeId } = useParams();
     const navigate = useNavigate();
 
@@ -16,22 +23,6 @@ export const Edit = () => {
             })
     }, []);
 
-    // console.log('Current recipe:');
-    // console.log('Current recipe: vegan ', currentRecipe.vegan);
-    // console.log('Current recipe: vegetarian ', currentRecipe.vegetarian);
-    // console.log('Current recipe: highProtein ', currentRecipe.highProtein);
-    // console.log('Current recipe: lowSugar ', currentRecipe.lowSugar);
-    // console.log('Current recipe: glutenFree ', currentRecipe.glutenFree);
-    // console.log('Current recipe: lacotseFree ', currentRecipe.lactoseFree)
-
-
-
-    const [isVegan, setIsVegan] = useState(false);
-    const [isVegetarian, setIsVegetarian] = useState(false);
-    const [isHighProtein, setIsHighProtein] = useState(false);
-    const [isLowSugar, setIsLowSugar] = useState(false);
-    const [isGlutenFree, setIsGlutenFree] = useState(false);
-    const [isLactoseFree, setIsLactoseFree] = useState(false);
 
     const onSubmitHandler = async (ev) => {
 
@@ -106,7 +97,7 @@ export const Edit = () => {
                 </textarea>
 
 
-                {/* //TODO: check if onclick is clicked */}
+                {/* //TODO: make checked/unchked for current recipe */}
 
                 <div className={styles.recipeTypeContainer}>
                     <h4>Choose recipe's type</h4>

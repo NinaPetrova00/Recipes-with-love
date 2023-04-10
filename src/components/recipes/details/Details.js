@@ -9,6 +9,8 @@ import { AuthContext } from "../../../context/AuthContext";
 export const Details = () => {
     const user = useContext(AuthContext);
     const userEmail = user.email;
+    const userId = user.uid;
+
     const { recipeId } = useParams();
     const [currentRecipe, setCurentRecipe] = useState({});
     const navigate = useNavigate();
@@ -21,7 +23,7 @@ export const Details = () => {
             });
     }, []);
 
-    //Function for adding comment
+    //Add comment
     function onSubmitHandler(ev) {
         ev.preventDefault();
         const formData = new FormData(ev.target);
@@ -29,11 +31,22 @@ export const Details = () => {
         const comment = formData.get('comment');
 
         console.log("Comment: ", comment);
-        //TODO: update with the new comment 
         recipeService.addComment(recipeId, userEmail, comment);
         //navigate('/catalogue/myRecipes');
     };
+    //TODO: check if recipe author is the same like current user
+    console.log("Recipe author's id", currentRecipe.author?.id);
+    console.log("Current user id ", userId);
 
+    let isCurrentUserTheAuthor;
+
+    if (userId == currentRecipe.author?.id) {
+        isCurrentUserTheAuthor = true;
+    } else {
+        isCurrentUserTheAuthor = false;
+    }
+
+    console.log("Is the current user the author", isCurrentUserTheAuthor)
     return (
 
         <>
@@ -66,15 +79,16 @@ export const Details = () => {
 
             <div className={styles.commentsContainer}>
                 <div className={styles.userComment}>
-                    {user ?
-                        <>
-                            <h3>Write your comment in the field below:</h3>
-                            <form onSubmit={onSubmitHandler}>
-                                <textarea name="comment" placeholder="Nice recipe!" ></textarea>
-                                {/* //TODO: user cannot add comment to its own recipe */}
-                                <button>Add comment</button>
-                            </form>
-                        </>
+                    {user
+                        ? isCurrentUserTheAuthor
+                            ? <h3 className={styles.userIsAuthor}>You cannot write comment on your own recipe!</h3>
+                            : <>
+                                <h3>Write your comment in the field below:</h3>
+                                <form onSubmit={onSubmitHandler}>
+                                    <textarea name="comment" placeholder="Nice recipe!" ></textarea>
+                                    <button>Add comment</button>
+                                </form>
+                            </>
                         : <p>
                             To add comment,
                             please <Link to="/login">login</Link> or <Link to="/register">register</Link></p>

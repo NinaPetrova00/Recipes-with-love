@@ -80,6 +80,11 @@
     text-align: center;
 }
 
+.userComment .userIsAuthor {
+    color: #ff0000b8;
+
+}
+
 .userComment button {
     border-radius: 10px;
     margin-top: 15px;

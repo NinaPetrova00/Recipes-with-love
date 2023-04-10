@@ -1,5 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import * as recipeService from '../../services/RecipeService';
+import * as commentService from '../../services/CommentService';
 
 import styles from "./Details.module.css";
 import { useEffect, useState, useContext } from "react";
@@ -8,13 +9,14 @@ import { AuthContext } from "../../../context/AuthContext";
 
 export const Details = () => {
     const user = useContext(AuthContext);
-    const userEmail = user.email;
-    const userId = user.uid;
+    const userEmail = user?.email;
+    const userId = user?.uid;
 
     const { recipeId } = useParams();
     const [currentRecipe, setCurentRecipe] = useState({});
-    const navigate = useNavigate();
+    const [currentComment, setCurrentComment] = useState({});
 
+    const navigate = useNavigate();
 
     useEffect(() => {
         recipeService.getOne(recipeId)
@@ -23,30 +25,37 @@ export const Details = () => {
             });
     }, []);
 
+    useEffect(() => {
+      
+        commentService.getCurrentRecipeComments(recipeId)
+            .then(result => {
+                setCurrentComment(result);
+            });
+    }, []);
+
     //Add comment
     function onSubmitHandler(ev) {
         ev.preventDefault();
-        const formData = new FormData(ev.target);
 
+        const formData = new FormData(ev.target);
         const comment = formData.get('comment');
 
-        console.log("Comment: ", comment);
-        recipeService.addComment(recipeId, userEmail, comment);
-        //navigate('/catalogue/myRecipes');
+        commentService.addComment(userId, recipeId, comment);
+        //TODO: decide where to navigate
+        //  navigate('/catalogue/myRecipes');
+        console.log("Current comment: ", currentComment);
+
     };
-    //TODO: check if recipe author is the same like current user
-    console.log("Recipe author's id", currentRecipe.author?.id);
-    console.log("Current user id ", userId);
 
+    //Check if user is the author 
     let isCurrentUserTheAuthor;
-
     if (userId == currentRecipe.author?.id) {
         isCurrentUserTheAuthor = true;
     } else {
         isCurrentUserTheAuthor = false;
     }
 
-    console.log("Is the current user the author", isCurrentUserTheAuthor)
+
     return (
 
         <>
@@ -74,9 +83,6 @@ export const Details = () => {
                 </div>
             </div>
 
-            {/* //TODO: if there is logged in user - add comment btn is opened */}
-
-
             <div className={styles.commentsContainer}>
                 <div className={styles.userComment}>
                     {user
@@ -94,6 +100,7 @@ export const Details = () => {
                             please <Link to="/login">login</Link> or <Link to="/register">register</Link></p>
                     }
                 </div>
+                {/* //TODO: display real comments */}
                 <div className={styles.comments}>
                     <h3>Customers' comments:</h3>
                     <ul>
@@ -104,6 +111,17 @@ export const Details = () => {
                             <h5>Maria</h5>
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur, minima.</p>
                         </li>
+                        {currentComment?.map(x => <li>{x.comment}</li>)}
+                        {/* {currentGame.comments?.map(x =>
+                            <li key={x} className="comment">
+                                <p>{x}</p>
+                            </li>
+                        )}
+                        
+                        myMap.forEach((value, key) => {
+  console.log(`${key} = ${value}`);
+});
+                        */}
                     </ul>
                 </div>
 

@@ -14,12 +14,10 @@ export const AuthProvider = ({ children }) => {
     onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
     });
-    // const id = user.uid;
 
-    //TODO: add here email and id, bc i use it a lot
     return (
         <AuthContext.Provider value={user}>
-            { children }
+            {children}
         </AuthContext.Provider >
     )
 };

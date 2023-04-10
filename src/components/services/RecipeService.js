@@ -4,7 +4,7 @@ import { db } from "../../config/firebase";
 const collectionName = "recipes";
 
 // CREATE
-export const addNewRecipe = async (recipeData) => {
+export const createNewRecipe = async (recipeData) => {
 
     // addDoc - Cloud Firestore auto-generate an ID 
     const resultData = await addDoc(collection(db, collectionName), recipeData);
@@ -102,12 +102,13 @@ export const deleteRecipe = async (recipeId) => {
 }
 
 // ADD comment 
-export const addComment = async (recipeId, newComment) => {
+export const addComment = async (recipeId, userEmail, userComment) => {
     const recipeDoc = doc(db, collectionName, recipeId);
 
     // To update some fields of a document without overwriting the entire document,
     // use the following language-specific update() methods:
     return await updateDoc(recipeDoc, {
-        comments: newComment
+        comments: { email: userEmail, comment: userComment }
     });
+
 }

@@ -9,18 +9,19 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthContext';
 
 export const Create = () => {
-    const navigate = useNavigate();
     const user = useContext(AuthContext);
-    const creatorId = user.uid;
+    const userId = user.uid;
+    const userEmail = user.email;
+    const navigate = useNavigate();
 
     const onSubmitHandler = (ev) => {
 
         ev.preventDefault();
         const recipeData = Object.fromEntries(new FormData(ev.target));
-        recipeData.creatorId = creatorId;
-        recipeData.comments='';
+        recipeData.author = { id: userId, email: userEmail };
+        recipeData.comments = '';
         setChechboxesValue(recipeData);
-        recipeService.addNewRecipe(recipeData);
+        recipeService.createNewRecipe(recipeData);
         navigate('/catalogue/myRecipes');
     };
 

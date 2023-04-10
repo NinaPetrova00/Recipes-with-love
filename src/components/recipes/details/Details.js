@@ -1,5 +1,5 @@
-import { useParams, Link } from "react-router-dom";
-import * as recipeSerive from '../../services/RecipeService';
+import { useParams, Link, useNavigate } from "react-router-dom";
+import * as recipeService from '../../services/RecipeService';
 
 import styles from "./Details.module.css";
 import { useEffect, useState, useContext } from "react";
@@ -8,16 +8,31 @@ import { AuthContext } from "../../../context/AuthContext";
 
 export const Details = () => {
     const user = useContext(AuthContext);
-
+    const userEmail = user.email;
     const { recipeId } = useParams();
     const [currentRecipe, setCurentRecipe] = useState({});
+    const navigate = useNavigate();
+
 
     useEffect(() => {
-        recipeSerive.getOne(recipeId)
+        recipeService.getOne(recipeId)
             .then(result => {
                 setCurentRecipe(result);
             });
     }, []);
+
+    //Function for adding comment
+    function onSubmitHandler(ev) {
+        ev.preventDefault();
+        const formData = new FormData(ev.target);
+
+        const comment = formData.get('comment');
+
+        console.log("Comment: ", comment);
+        //TODO: update with the new comment 
+        recipeService.addComment(recipeId, userEmail, comment);
+        //navigate('/catalogue/myRecipes');
+    };
 
     return (
 
@@ -46,7 +61,6 @@ export const Details = () => {
                 </div>
             </div>
 
-            {/* //TODO: add comments */}
             {/* //TODO: if there is logged in user - add comment btn is opened */}
 
 
@@ -55,8 +69,11 @@ export const Details = () => {
                     {user ?
                         <>
                             <h3>Write your comment in the field below:</h3>
-                            <textarea placeholder="Nice recipe!"></textarea>
-                            <button>Add comment</button>
+                            <form onSubmit={onSubmitHandler}>
+                                <textarea name="comment" placeholder="Nice recipe!" ></textarea>
+                                {/* //TODO: user cannot add comment to its own recipe */}
+                                <button>Add comment</button>
+                            </form>
                         </>
                         : <p>
                             To add comment,

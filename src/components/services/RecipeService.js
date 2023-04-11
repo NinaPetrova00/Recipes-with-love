@@ -57,7 +57,7 @@ export const getRecipesByType = async (recipeType) => {
 export const getCurretUserRecipes = async (userId) => {
 
     try {
-        const dbData = query(collection(db, collectionName), where("creatorId", "==", userId));
+        const dbData = query(collection(db, collectionName), where("author.id", "==", userId));
         const resultData = await getDocs(dbData);
 
         const result = resultData.docs.map((doc) => ({

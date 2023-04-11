@@ -7,8 +7,12 @@ import { AuthContext } from '../../../../context/AuthContext';
 
 export const CatalogueItem = ({ recipe }) => {
     const user = useContext(AuthContext);
+    const userId = user?.uid;
 
-    const isCreator = user?.uid === recipe.creatorId;
+
+    //TODO: remove "?", bcc it's impossible the recipe to be without auhtor
+    const isCreator = userId === recipe.author?.id;
+    console.log("user id", userId)
     return (
 
         <div className={styles.item}>
@@ -19,7 +23,7 @@ export const CatalogueItem = ({ recipe }) => {
                     <button className={styles.detailsBtn}>Details</button>
                 </Link>
             </div>
-            
+
             {isCreator &&
                 <div className={styles.editDelDiv}>
                     <Link to={`/edit/${recipe.id}`}>

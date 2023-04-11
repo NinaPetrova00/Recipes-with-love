@@ -64,20 +64,22 @@
 .commentsContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: -82px;
     font-size: 20px;
+    padding-top: 50px;
 }
 
 .comments {
-    margin: auto;
-    width: 53%;
+
+    width: 70%;
     text-align: center;
 }
 
 .userComment {
-    margin: auto;
+    margin: 10px 157px;
     width: 53%;
+    max-height: 333px;
     text-align: center;
+    background-color: #a8c3df9e;
 }
 
 .userComment .userIsAuthor {
@@ -104,6 +106,10 @@
     list-style: none;
     display: inline-block;
     text-align: center;
+}
+
+.comments hr {
+    border: 2px dashed #7c94ac;
 }
 
 .comments ul li {

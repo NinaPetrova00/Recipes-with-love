@@ -26,11 +26,18 @@ export const Details = () => {
     }, []);
 
     useEffect(() => {
-      
+        let isMounted = true;
+
         commentService.getCurrentRecipeComments(recipeId)
             .then(result => {
-                setCurrentComment(result);
+                if (isMounted) {
+                    setCurrentComment(result);
+                }
             });
+
+        return () => {
+            isMounted = false;
+        }
     }, []);
 
     //Add comment
@@ -40,7 +47,7 @@ export const Details = () => {
         const formData = new FormData(ev.target);
         const comment = formData.get('comment');
 
-        commentService.addComment(userId, recipeId, comment);
+        commentService.addComment(userId, userEmail, recipeId, comment);
         //TODO: decide where to navigate
         //  navigate('/catalogue/myRecipes');
         console.log("Current comment: ", currentComment);
@@ -54,7 +61,7 @@ export const Details = () => {
     } else {
         isCurrentUserTheAuthor = false;
     }
-
+    console.log("Is cur the au - ", isCurrentUserTheAuthor)
 
     return (
 
@@ -100,28 +107,21 @@ export const Details = () => {
                             please <Link to="/login">login</Link> or <Link to="/register">register</Link></p>
                     }
                 </div>
-                {/* //TODO: display real comments */}
+
                 <div className={styles.comments}>
                     <h3>Customers' comments:</h3>
                     <ul>
-                        <li>
-                            <h5>Nikol</h5>
-                            <p>Very good recipe!</p> </li>
-                        <li>
-                            <h5>Maria</h5>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur, minima.</p>
-                        </li>
-                        {currentComment?.map(x => <li>{x.comment}</li>)}
-                        {/* {currentGame.comments?.map(x =>
-                            <li key={x} className="comment">
-                                <p>{x}</p>
-                            </li>
-                        )}
-                        
-                        myMap.forEach((value, key) => {
-  console.log(`${key} = ${value}`);
-});
-                        */}
+                        {Object.keys(currentComment).length > 0
+                            ?
+                            currentComment.map(x =>
+                                <li>
+                                    <p>{x.comment}</p>
+                                    <hr />
+                                    <h5>By: {x.user.userEmail}</h5>
+                                </li>
+                            )
+                            : <h5>No comments yet!</h5>
+                        }
                     </ul>
                 </div>
 

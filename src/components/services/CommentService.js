@@ -5,13 +5,14 @@ const collectionName = "comments";
 
 // CREATE
 //TODO should it be try-catch?
-export const addComment = async (userId, recipeId, commentText) => {
+export const addComment = async (userId, userEmail, recipeId, commentText) => {
 
     // addDoc - Cloud Firestore auto-generate an ID 
     const resultData = await addDoc(collection(db, collectionName), {
         userId: userId,
         recipeId: recipeId,
-        comment: commentText
+        comment: commentText,
+        user: { userEmail: userEmail, userId: userId }
     });
 
     console.log("Document written with ID: ", resultData.id);

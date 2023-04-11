@@ -9,11 +9,8 @@ import { CatalogueItem } from "../catalogue/catalogue-item/CatalogueItem";
 export const UserSrecipes = () => {
     const user = useContext(AuthContext);
     const userId = user.uid;
-    console.log("User id", userId);
-    // console.log("User email", user.email);
     const [userRecipes, setUserRecipes] = useState([]);
 
-    //TODO: fix this, it should be asyncronous 
     useEffect(() => {
         if (userId != undefined) {
             recipeService.getCurretUserRecipes(userId)

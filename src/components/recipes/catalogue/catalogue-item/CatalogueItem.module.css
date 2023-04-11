@@ -1,3 +1,10 @@
+.loadingSpinner {
+  text-align: center;
+  padding-top: 50px;
+  color:#7c94ac;
+  font-family: 'Alkatra';
+}
+
 .catalogue {
   display: flex;
   align-content: space-between;

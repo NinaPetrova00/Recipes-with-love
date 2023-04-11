@@ -22,52 +22,55 @@ import { AuthContext, AuthProvider } from './context/AuthContext';
 import { UserSrecipes } from './components/recipes/userRecipes/UserRecipes';
 
 
+
+
 function App() {
 
-  const [recipes, setRecipes] = useState([]);
+  // const [recipes, setRecipes] = useState([]);
 
-  // const { user } = useContext(AuthContext);
+  // useEffect(() => {
+  //   recipeService.getAll()
+  //     .then(result =>
+  //       setRecipes(result));
+  // }, []);
 
-  useEffect(() => {
-    recipeService.getAll()
-      .then(result =>
-        setRecipes(result));
-  }, []);
+
 
   return (
     <div>
-      {/* //todo: add value={user} */}
-      <AuthProvider >
-        <Header />
 
-        {/* <RecipeContext.Provider value={recipes}> */}
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
+        <AuthProvider >
+          <Header />
 
-          <Route path='/login' element={<Login />} />
-          <Route path='/logout' element={<Logout />} />
-          <Route path='/register' element={<Register />} />
+          {/* <RecipeContext.Provider value={recipes}> */}
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+
+            <Route path='/login' element={<Login />} />
+            <Route path='/logout' element={<Logout />} />
+            <Route path='/register' element={<Register />} />
 
 
-          <Route path='/catalogue/vegan' element={<Catalogue recipeType={"vegan"} ></Catalogue>}></Route>
-          <Route path='/catalogue/vegetarian' element={<Catalogue recipeType={"vegetarian"} ></Catalogue>}></Route>
-          <Route path='/catalogue/highProtein' element={<Catalogue recipeType={"highProtein"} ></Catalogue>}></Route>
-          <Route path='/catalogue/lowSugar' element={<Catalogue recipeType={"lowSugar"}></Catalogue>}></Route>
-          <Route path='/catalogue/glutenFree' element={<Catalogue recipeType={"glutenFree"} ></Catalogue>}></Route>
-          <Route path='/catalogue/lactoseFree' element={<Catalogue recipeType={"lactoseFree"} ></Catalogue>}></Route>
-          <Route path='/catalogue/lactoseFree' element={<Catalogue recipeType={"lactoseFree"} ></Catalogue>}></Route>
-          <Route path='/catalogue/myRecipes' element={<UserSrecipes></UserSrecipes>}></Route>
+            <Route path='/catalogue/vegan' element={<Catalogue recipeType={"vegan"} ></Catalogue>}></Route>
+            <Route path='/catalogue/vegetarian' element={<Catalogue recipeType={"vegetarian"} ></Catalogue>}></Route>
+            <Route path='/catalogue/highProtein' element={<Catalogue recipeType={"highProtein"} ></Catalogue>}></Route>
+            <Route path='/catalogue/lowSugar' element={<Catalogue recipeType={"lowSugar"}></Catalogue>}></Route>
+            <Route path='/catalogue/glutenFree' element={<Catalogue recipeType={"glutenFree"} ></Catalogue>}></Route>
+            <Route path='/catalogue/lactoseFree' element={<Catalogue recipeType={"lactoseFree"} ></Catalogue>}></Route>
+            <Route path='/catalogue/lactoseFree' element={<Catalogue recipeType={"lactoseFree"} ></Catalogue>}></Route>
+            <Route path='/catalogue/myRecipes' element={<UserSrecipes></UserSrecipes>}></Route>
 
-          <Route path='/details/:recipeId' element={<Details />} />
-          <Route path='/edit/:recipeId' element={<Edit />} />
-          <Route path='/delete/:recipeId' element={<Delete />} />
+            <Route path='/details/:recipeId' element={<Details />} />
+            <Route path='/edit/:recipeId' element={<Edit />} />
+            <Route path='/delete/:recipeId' element={<Delete />} />
 
-          <Route path='/create' element={<Create />} />
+            <Route path='/create' element={<Create />} />
 
-        </Routes>
-      </AuthProvider>
-      {/* </RecipeContext.Provider> */}
+          </Routes>
+        </AuthProvider>
+
     </div>
+
   );
 }
 

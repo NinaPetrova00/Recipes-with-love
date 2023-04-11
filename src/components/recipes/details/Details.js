@@ -104,7 +104,8 @@ export const Details = () => {
                             </>
                         : <p>
                             To add comment,
-                            please <Link to="/login">login</Link> or <Link to="/register">register</Link></p>
+                            please <Link to="/login">login</Link> or <Link to="/register">register</Link>!
+                        </p>
                     }
                 </div>
 
@@ -118,8 +119,7 @@ export const Details = () => {
                                     <p>{x.comment}</p>
                                     <hr />
                                     <h5>By: {x.user.userEmail}</h5>
-                                </li>
-                            )
+                                </li>)
                             : <h5>No comments yet!</h5>
                         }
                     </ul>

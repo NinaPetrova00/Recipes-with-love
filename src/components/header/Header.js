@@ -19,6 +19,15 @@ export const Header = () => {
     // when there isn't logged user - login and registered btns are enabled, but loggout btn is disabled
     let isDisabledLogoutBtn = user?.email ? false : true;
 
+    // const onSubmitHandler = (ev) => {
+    //     ev.preventDefault();
+
+    //     const { email, password } = Object.fromEntries(new FormData(ev.target));
+    //     console.log(email, " ", password);
+
+    //     authService.login(email, password);
+    //     navigate('/');
+    // };
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
@@ -50,15 +59,11 @@ export const Header = () => {
                         <NavDropdown.Item href="#action5">
                             Something else here
                         </NavDropdown.Item>
-                    </NavDropdown> */}
-                    {/* <NavDropdown title="Account" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Login</NavDropdown.Item>
-                        <NavDropdown.Item href="#action3">Register</NavDropdown.Item>
-                    </NavDropdown> */}
+                    </NavDropdown>  */}
 
                     <div className={styles.usernameContainer}>
-                        {user ?
-                            <Nav.Link>Welcome, {user.email} !</Nav.Link>
+                        {user
+                            ? <Nav.Link>Welcome, {user.email} !</Nav.Link>
                             : <></>
                         }
                     </div>
@@ -68,15 +73,16 @@ export const Header = () => {
                         <Nav.Link href="/logout" disabled={isDisabledLogoutBtn} >Logout</Nav.Link>
                         <Nav.Link href="/create" disabled={isDisabledLogoutBtn} >Add recipe</Nav.Link>
                     </div>
-
                 </Nav>
-                <Form className="d-flex">
+
+                <Form className="d-flex" onSubmit={onSubmitHandler}>
                     <Form.Control
                         type="search"
-                        placeholder="Search"
+                        placeholder="Search recipe"
                         className="me-2"
                         aria-label="Search"
                     />
+                    {/* //TODO: redirect ot SearchCatalogue component */}
                     <Button variant="outline-success">Search</Button>
                 </Form>
 

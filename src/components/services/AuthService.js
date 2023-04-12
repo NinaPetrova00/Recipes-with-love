@@ -31,3 +31,6 @@ export const logout = async () => {
     }
 
 };
+
+
+//TODO: check if everything is in tryCatch

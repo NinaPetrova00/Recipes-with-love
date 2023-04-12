@@ -1,10 +1,11 @@
-import styles from './catalogue-item/CatalogueItem.module.css';
-import * as recipeService from "../../services/RecipeService";
-import { CatalogueItem } from './catalogue-item/CatalogueItem';
+import styles from '../catalogue-item/CatalogueItem.module.css';
+import * as recipeService from "../../../services/RecipeService";
+import { CatalogueItem } from '../catalogue-item/CatalogueItem';
 import { useState, useEffect } from 'react';
 import PropagateLoader from "react-spinners/PropagateLoader";
 
-export const Catalogue = ({ recipeType }) => {
+
+export const SearchCatalogue = () => {
     const [recipeByType, setrecipeByType] = useState([]);
     const [loadingSpinner, setLoadingSpinner] = useState(false);
 
@@ -19,7 +20,6 @@ export const Catalogue = ({ recipeType }) => {
             setLoadingSpinner(false);
         }, 1000); //1sec
     }, []);
-
     return (
         <>
             {loadingSpinner

@@ -73,7 +73,9 @@ export const getCurretUserRecipes = async (userId) => {
     }
 };
 
+export const getRecipesBySearchBar = async()=>{
 
+}
 // UPDATE
 export const editRecipe = async (recipeId, updatedData) => {
     const recipeDoc = doc(db, collectionName, recipeId);
@@ -101,3 +103,5 @@ export const deleteRecipe = async (recipeId) => {
     await deleteDoc(recipeDoc);
 }
 
+
+//TODO: check if everything is in tryCatch

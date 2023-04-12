@@ -40,3 +40,6 @@ export const getCurrentRecipeComments = async (recipeId) => {
 
     }
 };
+
+
+//TODO: check if everything is in tryCatch

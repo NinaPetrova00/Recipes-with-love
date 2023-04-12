@@ -14,7 +14,6 @@ export const CatalogueItem = ({ recipe }) => {
     const isCreator = userId === recipe.author?.id;
     console.log("user id", userId)
     return (
-
         <div className={styles.item}>
             <h4>{recipe.title}</h4>
             <img src={recipe.imageUrl} />

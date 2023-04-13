@@ -9,14 +9,15 @@ import * as authService from '../../services/AuthService';
 
 export const Login = () => {
     const navigate = useNavigate();
+
     const onSubmitHandler = (ev) => {
         ev.preventDefault();
 
         const { email, password } = Object.fromEntries(new FormData(ev.target));
-        console.log(email, " ", password);
 
         authService.login(email, password);
         navigate('/');
+        //TODO: don't redirect if login is failed
     };
 
     return (

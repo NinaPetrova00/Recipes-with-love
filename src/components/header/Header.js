@@ -9,8 +9,10 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
+import { useNavigate, Link } from "react-router-dom";
 
 export const Header = () => {
+    const navigate = useNavigate();
 
     const user = useContext(AuthContext);
 
@@ -19,15 +21,17 @@ export const Header = () => {
     // when there isn't logged user - login and registered btns are enabled, but loggout btn is disabled
     let isDisabledLogoutBtn = user?.email ? false : true;
 
-    // const onSubmitHandler = (ev) => {
-    //     ev.preventDefault();
+    const onSubmitHandler = (ev) => {
+        ev.preventDefault();
 
-    //     const { email, password } = Object.fromEntries(new FormData(ev.target));
-    //     console.log(email, " ", password);
+        const { search } = Object.fromEntries(new FormData(ev.target));
+        console.log(search);
 
-    //     authService.login(email, password);
-    //     navigate('/');
-    // };
+        // authService.login(email, password);
+        navigate('/catalogue/search');
+    };
+
+
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
@@ -75,17 +79,27 @@ export const Header = () => {
                     </div>
                 </Nav>
 
-                <Form className="d-flex" onSubmit={onSubmitHandler}>
+                {/* <Form className="d-flex" onSubmit={onSubmitHandler}>
                     <Form.Control
                         type="search"
+                        name="search"
                         placeholder="Search recipe"
                         className="me-2"
                         aria-label="Search"
                     />
                     {/* //TODO: redirect ot SearchCatalogue component */}
-                    <Button variant="outline-success">Search</Button>
-                </Form>
+                {/* <Button variant="outline-success">Search</Button>
+                </Form> */}
 
+                <form onSubmit={onSubmitHandler}>
+                    <input
+                        type="search"
+                        name="search"
+                        id="serach"
+                        placeholder="Search recipe"
+                    />
+                    <button>Click</button>
+                </form>
             </Container>
         </Navbar>
     );

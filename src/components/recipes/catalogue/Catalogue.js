@@ -39,5 +39,6 @@ export const Catalogue = ({ recipeType }) => {
                 </div>
             }
         </>
+
     );
 }

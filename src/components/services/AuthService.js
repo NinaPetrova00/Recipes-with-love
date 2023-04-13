@@ -1,14 +1,16 @@
-import { useState } from "react"
 import { onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from "../../config/firebase";
+
 
 export const register = async (email, password) => {
     try {
         const user = await createUserWithEmailAndPassword(auth, email, password);
         console.log("Registered user: ", user);
+
     } catch (error) {
-        //TODO: check erorr.message vs error
-        console.log(error.message);
+        const errorCode = error.code.split("auth/")[1];
+        //alert(error.message);
+        alert(errorCode);
     }
 };
 
@@ -17,7 +19,8 @@ export const login = async (email, password) => {
         const user = await signInWithEmailAndPassword(auth, email, password);
         console.log("Logged user: ", user);
     } catch (error) {
-        console.log(error);
+        const errorCode = error.code.split("auth/")[1];
+        alert(errorCode);
     }
 };
 
@@ -27,10 +30,5 @@ export const logout = async () => {
         console.log("Succesfully logged out")
     } catch (error) {
         console.log(error);
-
     }
-
 };
-
-
-//TODO: check if everything is in tryCatch

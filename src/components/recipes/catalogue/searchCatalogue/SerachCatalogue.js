@@ -5,21 +5,23 @@ import { useState, useEffect } from 'react';
 import PropagateLoader from "react-spinners/PropagateLoader";
 
 
-export const SearchCatalogue = () => {
-    const [recipeByType, setrecipeByType] = useState([]);
+export const SearchCatalogue = ({ searchData }) => {
+    const [recipeBySearch, setRecipeBySearch] = useState([]);
     const [loadingSpinner, setLoadingSpinner] = useState(false);
 
     useEffect(() => {
         setLoadingSpinner(true);
-
-        recipeService.getRecipesByType(recipeType)
-            .then(result =>
-                setrecipeByType(result))
-
+        if (searchData != undefined) {
+            recipeService.getRecipesBySearchBar(searchData)
+                .then(result =>
+                    setRecipeBySearch(result))
+        }
         setTimeout(() => {
             setLoadingSpinner(false);
         }, 1000); //1sec
     }, []);
+
+    console.log(recipeBySearch);
     return (
         <>
             {loadingSpinner
@@ -32,9 +34,9 @@ export const SearchCatalogue = () => {
                     />
                 </div>
                 : <div className={styles.catalogue}>
-                    {recipeByType.length > 0
-                        ? recipeByType.map(x => <CatalogueItem key={x.id} recipe={x} />)
-                        : <h3>No recipes in this category yet!</h3>
+                    {recipeBySearch?.length > 0
+                        ? recipeBySearch.map(x => x)
+                        : <h3>No results!</h3>
                     }
                 </div>
             }

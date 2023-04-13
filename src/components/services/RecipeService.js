@@ -73,9 +73,23 @@ export const getCurretUserRecipes = async (userId) => {
     }
 };
 
-export const getRecipesBySearchBar = async()=>{
+//TODO: not working 
+export const getRecipesBySearchBar = async (searchData) => {
+    try {
+        const dbData = query(collection(db, collectionName), where("title", "==", searchData));
+        const resultData = await getDocs(dbData);
+        const result = resultData.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id
+        }));
 
-}
+        return result;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
 // UPDATE
 export const editRecipe = async (recipeId, updatedData) => {
     const recipeDoc = doc(db, collectionName, recipeId);

@@ -4,34 +4,27 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import styles from "../login/Login.module.css";
 import * as authService from '../../services/AuthService';
+import { useEffect, useState } from "react";
 
 export const Register = () => {
     const navigate = useNavigate();
+
+
     const onSubmitHandler = async (ev) => {
         ev.preventDefault();
 
-        // const formData = new FormData(ev.target);
-
-        // const email = formData.get('email');
-        // const password = formData.get('password');
-        // const confirmPassword = formData.get('confirm-password');
         const { email, password, repeatPassword } = Object.fromEntries(new FormData(ev.target));
-        console.log(email, ",pass: ", password, ",repPass: ", repeatPassword);
 
-        // if (password !== confirmPassword) {
-        //     return;
-        //     // or navigate('/404);
-        //}
+        if (password !== repeatPassword) {
+            alert("Password and repeat password don't match!")
+            return;
+        }
 
-        // try {
-        //     const user = await createUserWithEmailAndPassword(auth, email, password);
-        //     console.log("NEW USER: ", user);
-        // } catch (error) {
-        //     console.log(error.message);
-        // }
         authService.register(email, password);
-        navigate('/');
-    };
+        //TODO: redirect to home only if it is succesfull
+
+        navigate('/')
+    }
 
     return (
         <form className={styles.userForm} onSubmit={onSubmitHandler}>

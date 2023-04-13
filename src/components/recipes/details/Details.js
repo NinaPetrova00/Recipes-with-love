@@ -1,10 +1,8 @@
+import { useEffect, useState, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import styles from "./Details.module.css";
 import * as recipeService from '../../services/RecipeService';
 import * as commentService from '../../services/CommentService';
-
-import styles from "./Details.module.css";
-import { useEffect, useState, useContext } from "react";
-
 import { AuthContext } from "../../../context/AuthContext";
 
 export const Details = () => {

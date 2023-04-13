@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom';
-import * as recipeService from '../../../services/RecipeService';
-
-import styles from './CatalogueItem.module.css';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import styles from './CatalogueItem.module.css';
 import { AuthContext } from '../../../../context/AuthContext';
 
 export const CatalogueItem = ({ recipe }) => {

@@ -1,15 +1,12 @@
+import { useContext } from 'react';
+import { useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styles from './Header.module.css';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
-import { useContext } from 'react';
+import styles from './Header.module.css';
 import { AuthContext } from '../../context/AuthContext';
-import { useNavigate, Link } from "react-router-dom";
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -21,13 +18,12 @@ export const Header = () => {
     // when there isn't logged user - login and registered btns are enabled, but loggout btn is disabled
     let isDisabledLogoutBtn = user?.email ? false : true;
 
+    //TODO: fix it
     const onSubmitHandler = (ev) => {
         ev.preventDefault();
 
         const { search } = Object.fromEntries(new FormData(ev.target));
         console.log(search);
-
-        // authService.login(email, password);
         navigate('/catalogue/search');
     };
 
@@ -35,7 +31,6 @@ export const Header = () => {
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
-                {/* <div>{user?.email}</div> */}
                 <Nav
                     className="me-auto my-2 my-lg-0"
                     style={{ maxHeight: '100px' }}

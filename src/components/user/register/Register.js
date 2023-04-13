@@ -1,10 +1,6 @@
-import { Link } from "react-router-dom";
-import { auth } from '../../../config/firebase';
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import styles from "../login/Login.module.css";
 import * as authService from '../../services/AuthService';
-import { useEffect, useState } from "react";
 
 export const Register = () => {
     const navigate = useNavigate();

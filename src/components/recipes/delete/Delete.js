@@ -1,9 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import styles from './Delete.module.css';
 import * as recipeService from '../../services/RecipeService';
 import { Details } from "../details/Details";
-
-import styles from './Delete.module.css';
 
 export const Delete = () => {
     const { recipeId } = useParams();

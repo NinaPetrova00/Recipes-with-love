@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom";
+import styles from '../create/Create.module.css';
+
 import * as recipeService from '../../services/RecipeService';
 
-import styles from '../create/Create.module.css';
 
 export const Edit = () => {
     const [currentRecipe, setCurentRecipe] = useState({});

@@ -1,11 +1,7 @@
-import { useNavigate } from "react-router-dom";
-
-import * as recipeService from '../../services/RecipeService';
-
-import styles from './Create.module.css';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 import { useContext } from 'react';
+import { useNavigate } from "react-router-dom";
+import styles from './Create.module.css';
+import * as recipeService from '../../services/RecipeService';
 import { AuthContext } from '../../../context/AuthContext';
 
 export const Create = () => {
@@ -81,7 +77,7 @@ export const Create = () => {
                 eggs"
                     required>
                 </textarea>
-                
+
                 <label htmlFor="cookingSteps" className={styles.customLabel}>
                     Please, write every cooking step on new line!</label>
                 <textarea

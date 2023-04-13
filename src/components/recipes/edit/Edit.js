@@ -56,6 +56,7 @@ export const Edit = () => {
                     name="title"
                     placeholder="Recipe title"
                     defaultValue={currentRecipe.title}
+                    required
                 />
 
                 <label htmlFor="imageUrl">ImageUrl</label>
@@ -66,6 +67,7 @@ export const Edit = () => {
                     name="imageUrl"
                     placeholder="Recipe imageUrl"
                     defaultValue={currentRecipe.imageUrl}
+                    required
                 />
 
                 <label htmlFor="cookingTime">Cooking time</label>
@@ -76,6 +78,7 @@ export const Edit = () => {
                     name="cookingTime"
                     placeholder="Cooking time"
                     defaultValue={currentRecipe.cookingTime}
+                    required
                 />
 
                 <label htmlFor="ingredients" className={styles.customLabel}>
@@ -84,7 +87,8 @@ export const Edit = () => {
                     name="ingredients"
                     id="ingredients"
                     placeholder="Ingredients"
-                    defaultValue={currentRecipe.ingredients}>
+                    defaultValue={currentRecipe.ingredients}
+                    required>
                 </textarea>
 
                 <label htmlFor="cookingSteps" className={styles.customLabel}>
@@ -93,7 +97,8 @@ export const Edit = () => {
                     name="cookingSteps"
                     id="cookingSteps"
                     placeholder="Cooking steps"
-                    defaultValue={currentRecipe.cookingSteps} >
+                    defaultValue={currentRecipe.cookingSteps}
+                    required>
                 </textarea>
 
 

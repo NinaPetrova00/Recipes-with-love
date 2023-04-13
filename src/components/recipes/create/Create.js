@@ -46,6 +46,7 @@ export const Create = () => {
                     id="title"
                     name="title"
                     placeholder="Vegan pancakes"
+                    required
                 />
 
                 <label htmlFor="imageUrl">ImageUrl</label>
@@ -55,6 +56,7 @@ export const Create = () => {
                     id="imageUrl"
                     name="imageUrl"
                     placeholder="https://kitchen.com/vegan-pancakes.jpg"
+                    required
                 />
 
                 <label htmlFor="cookingTime">Cooking time</label>
@@ -64,6 +66,7 @@ export const Create = () => {
                     id="cookingTime"
                     name="cookingTime"
                     placeholder="40 min"
+                    required
                 />
 
                 <label htmlFor="ingredients" className={styles.customLabel}>
@@ -71,11 +74,14 @@ export const Create = () => {
                 <textarea
                     name="ingredients"
                     id="ingredients"
+
                     placeholder="Ingredients:
                 flour 
                 sugar 
-                eggs"></textarea>
-
+                eggs"
+                    required>
+                </textarea>
+                
                 <label htmlFor="cookingSteps" className={styles.customLabel}>
                     Please, write every cooking step on new line!</label>
                 <textarea
@@ -84,7 +90,9 @@ export const Create = () => {
                     placeholder="Cooking steps:
                 Wash 
                 Cut 
-                Bake"></textarea>
+                Bake"
+                    required>
+                </textarea>
 
                 <div className={styles.recipeTypeContainer}>
                     <h4>Choose recipe's type</h4>

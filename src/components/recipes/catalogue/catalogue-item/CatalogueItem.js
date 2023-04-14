@@ -10,7 +10,7 @@ export const CatalogueItem = ({ recipe }) => {
 
     //TODO: remove "?", bcc it's impossible the recipe to be without auhtor
     const isCreator = userId === recipe.author?.id;
-    console.log("user id", userId)
+
     return (
         <div className={styles.item}>
             <h4>{recipe.title}</h4>

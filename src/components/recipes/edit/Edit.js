@@ -4,7 +4,6 @@ import styles from '../create/Create.module.css';
 
 import * as recipeService from '../../services/RecipeService';
 
-
 export const Edit = () => {
     const [currentRecipe, setCurentRecipe] = useState({});
     const [isVegan, setIsVegan] = useState(false);

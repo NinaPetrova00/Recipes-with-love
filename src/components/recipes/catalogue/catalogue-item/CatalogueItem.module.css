@@ -1,7 +1,7 @@
 .loadingSpinner {
   text-align: center;
   padding-top: 50px;
-  color:#7c94ac;
+  color: #7c94ac;
   font-family: 'Alkatra';
 }
 
@@ -85,7 +85,34 @@
   color: #c35198;
 }
 
-.noRecipesContainer img {
+.noRecipesContainer img,
+.noResults img {
   width: 30px;
   height: 30px;
+}
+
+.searchContainer {
+  font-family: 'Alkatra';
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.searchContainer input {
+  border-radius: 5px;
+}
+
+.searchContainer button {
+  margin-left: 4px;
+  border-radius: 5px;
+}
+
+.searchContainer h2 {
+  padding: 30px;
+}
+
+.noResults {
+  text-align: center;
+  font-family: 'Alkatra';
+  padding-top: 30px;
 }

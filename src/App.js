@@ -43,7 +43,7 @@ function App() {
           <Route path='/edit/:recipeId' element={<Edit />} />
           <Route path='/delete/:recipeId' element={<Delete />} />
 
-          <Route path='/create' element={<Create searchData={"Peter's recipe"} />} />
+          <Route path='/create' element={<Create />} />
 
         </Routes>
       </AuthProvider>

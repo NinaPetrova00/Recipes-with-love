@@ -22,14 +22,13 @@ export const Header = () => {
     const onSubmitHandler = (ev) => {
         ev.preventDefault();
 
-        const { search } = Object.fromEntries(new FormData(ev.target));
-        console.log(search);
         navigate('/catalogue/search');
     };
 
 
     return (
-        <Navbar bg="light" expand="lg">
+        //TODO: change font-family maybe?
+        <Navbar bg="light" expand="lg" className={styles.navbar}>
             <Container fluid>
                 <Nav
                     className="me-auto my-2 my-lg-0"
@@ -87,13 +86,10 @@ export const Header = () => {
                 </Form> */}
 
                 <form onSubmit={onSubmitHandler}>
-                    <input
-                        type="search"
-                        name="search"
-                        id="serach"
-                        placeholder="Search recipe"
-                    />
-                    <button>Click</button>
+                    <Nav.Link href="/catalogue/search">
+                        <img src={process.env.PUBLIC_URL + '/images/searchIcon.png'} />
+                        Search recipe
+                    </Nav.Link>
                 </form>
             </Container>
         </Navbar>

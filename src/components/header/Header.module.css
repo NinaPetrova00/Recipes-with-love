@@ -1,11 +1,11 @@
 .customContainerUser {
     display: flex;
-    padding-left: 500px;
+    padding-left: 700px;
 }
 
 .customContainerNoUser {
     display: flex;
-    padding-left: 724px;
+    padding-left: 900px;
 }
 
 .customContainerUser a:hover,
@@ -26,7 +26,8 @@
     font-size: 18px;
 }
 
-form img {
+.searchRecipe img {
     width: 20px;
     height: 20px;
+    margin-right: 4px;
 }

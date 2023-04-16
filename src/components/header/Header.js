@@ -18,10 +18,8 @@ export const Header = () => {
     // when there isn't logged user - login and registered btns are enabled, but loggout btn is disabled
     let isDisabledLogoutBtn = user?.email ? false : true;
 
-    //TODO: fix it
     const onSubmitHandler = (ev) => {
         ev.preventDefault();
-
         navigate('/catalogue/search');
     };
 
@@ -73,19 +71,7 @@ export const Header = () => {
                     </div>
                 </Nav>
 
-                {/* <Form className="d-flex" onSubmit={onSubmitHandler}>
-                    <Form.Control
-                        type="search"
-                        name="search"
-                        placeholder="Search recipe"
-                        className="me-2"
-                        aria-label="Search"
-                    />
-                    {/* //TODO: redirect ot SearchCatalogue component */}
-                {/* <Button variant="outline-success">Search</Button>
-                </Form> */}
-
-                <form onSubmit={onSubmitHandler}>
+                <form onSubmit={onSubmitHandler} className={styles.searchRecipe}>
                     <Nav.Link href="/catalogue/search">
                         <img src={process.env.PUBLIC_URL + '/images/searchIcon.png'} />
                         Search recipe

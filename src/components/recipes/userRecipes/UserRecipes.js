@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import styles from '../catalogue/catalogue-item/CatalogueItem.module.css';
+import styles from '../catalogue/Catalogue.module.css';
 import * as recipeService from '../../services/RecipeService';
 import { AuthContext } from '../../../context/AuthContext';
 import { CatalogueItem } from "../catalogue/catalogue-item/CatalogueItem";

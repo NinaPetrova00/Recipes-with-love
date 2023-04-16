@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropagateLoader from "react-spinners/PropagateLoader";
-import styles from './catalogue-item/CatalogueItem.module.css';
+import styles from './Catalogue.module.css';
 import * as recipeService from "../../services/RecipeService";
 import { CatalogueItem } from './catalogue-item/CatalogueItem';
 

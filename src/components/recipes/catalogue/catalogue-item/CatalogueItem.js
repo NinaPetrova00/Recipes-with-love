@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './CatalogueItem.module.css';
+import styles from '../Catalogue.module.css';
 import { AuthContext } from '../../../../context/AuthContext';
 
 export const CatalogueItem = ({ recipe }) => {

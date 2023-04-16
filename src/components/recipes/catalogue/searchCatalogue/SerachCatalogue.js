@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropagateLoader from "react-spinners/PropagateLoader";
-import styles from '../catalogue-item/CatalogueItem.module.css';
+import styles from '../Catalogue.module.css';
 import * as recipeService from "../../../services/RecipeService";
 import { CatalogueItem } from '../catalogue-item/CatalogueItem';
 
@@ -51,7 +51,7 @@ export const SearchCatalogue = () => {
                         type="search"
                         name="search"
                         id="serach"
-                        placeholder="Search recipe"
+                        placeholder="Enter recipe..."
                     />
                     {/* //TODO: change btn css */}
                     <button>Search</button>

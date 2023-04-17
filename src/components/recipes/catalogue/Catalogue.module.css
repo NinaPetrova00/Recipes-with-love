@@ -91,24 +91,25 @@
   height: 30px;
 }
 
-.searchContainer {
+.searchForm {
   font-family: 'Alkatra';
   text-align: center;
   padding-top: 50px;
   padding-bottom: 20px;
+  background-color: lavender;
 }
 
-.searchContainer input {
+.searchForm input {
   border-radius: 5px;
 }
 
-.searchContainer button {
+.searchForm button {
   margin-left: 4px;
   border-radius: 5px;
   background-color: #85b7ca;
 }
 
-.searchContainer h2 {
+.searchForm h2 {
   padding: 30px;
 }
 

@@ -44,19 +44,18 @@ export const SearchCatalogue = () => {
 
     return (
         <>
-            <div className={styles.searchContainer}>
-                <form onSubmit={onSubmitHandler}>
-                    <h2>What are you looking for?</h2>
-                    <input
-                        type="search"
-                        name="search"
-                        id="serach"
-                        placeholder="Enter recipe..."
-                    />
-                    {/* //TODO: change btn css */}
-                    <button>Search</button>
-                </form>
-            </div>
+
+            <form onSubmit={onSubmitHandler} className={styles.searchForm}>
+                <h2>What are you looking for?</h2>
+                <input
+                    type="search"
+                    name="search"
+                    id="serach"
+                    placeholder="Enter recipe..."
+                />
+                <button>Search</button>
+            </form>
+
 
             {isClicked
                 ? loadingSpinner

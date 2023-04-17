@@ -17,6 +17,7 @@ import { SearchCatalogue } from './components/recipes/catalogue/searchCatalogue/
 function App() {
   return (
     <div>
+      {/* //TODO: change backgound color? */}
 
       <AuthProvider >
         <Header />

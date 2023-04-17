@@ -40,16 +40,11 @@ export const Details = () => {
 
     //Add comment
     function onSubmitHandler(ev) {
-        ev.preventDefault();
-
         const formData = new FormData(ev.target);
         const comment = formData.get('comment');
 
         commentService.addComment(userId, userEmail, recipeId, comment);
-        //TODO: decide where to navigate
-        //  navigate('/catalogue/myRecipes');
         console.log("Current comment: ", currentComment);
-
     };
 
     //Check if user is the author 

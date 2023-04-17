@@ -6,10 +6,8 @@ import { AuthContext } from '../../../../context/AuthContext';
 export const CatalogueItem = ({ recipe }) => {
     const user = useContext(AuthContext);
     const userId = user?.uid;
-
-
-    //TODO: remove "?", bcc it's impossible the recipe to be without auhtor
-    const isCreator = userId === recipe.author?.id;
+    
+    const isCreator = userId === recipe.author.id;
 
     return (
         <div className={styles.item}>

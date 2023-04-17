@@ -18,25 +18,8 @@ export const UserRecipes = () => {
         }
     });
 
-    // useEffect(() => {
-
-    //     recipeService.getCurretUserRecipes(userId)
-    //         .then(result =>
-    //             setUserRecipes(result));
-    // }, []);
-
-    // console.log("users recipes ", userRecipes);
-
     return (
         <>
-            {/* <div className={styles.catalogue}>
-                {recipeByType.length > 0
-                    ? recipeByType.map(x => 
-                    : <h3>No recipes in this category yet!</h3>
-                }
-            </div> */}
-            {/* //TODO: check if the user have recipes or no  */}
-
             {userRecipes.length > 0
                 ? <div className={styles.catalogue}>
                     {userRecipes.map(x => <CatalogueItem key={x.id} recipe={x} />)}

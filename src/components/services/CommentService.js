@@ -14,9 +14,7 @@ export const addComment = async (userId, userEmail, recipeId, commentText) => {
         comment: commentText,
         user: { userEmail: userEmail, userId: userId }
     });
-
-    console.log("Document written with ID: ", resultData.id);
-
+    
     return resultData;
 };
 

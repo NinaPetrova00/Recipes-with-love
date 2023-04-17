@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import styles from "./Details.module.css";
 import * as recipeService from '../../services/RecipeService';
 import * as commentService from '../../services/CommentService';
@@ -13,8 +13,6 @@ export const Details = () => {
     const { recipeId } = useParams();
     const [currentRecipe, setCurentRecipe] = useState({});
     const [currentComment, setCurrentComment] = useState({});
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         recipeService.getOne(recipeId)
@@ -44,7 +42,6 @@ export const Details = () => {
         const comment = formData.get('comment');
 
         commentService.addComment(userId, userEmail, recipeId, comment);
-        console.log("Current comment: ", currentComment);
     };
 
     //Check if user is the author 
@@ -54,11 +51,23 @@ export const Details = () => {
     } else {
         isCurrentUserTheAuthor = false;
     }
-    console.log("Is cur the au - ", isCurrentUserTheAuthor)
 
     return (
 
         <>
+            <div className={styles.tagsContainer}>
+                <div className={styles.categoryDiv}>
+                    <h5>Categories:</h5>
+                    <img src={process.env.PUBLIC_URL + '/images/arrowIcon.png'} />
+                </div>
+                {currentRecipe.vegan == "yes" ? <div className={styles.tagsDiv}>Vegan</div> : <></>}
+                {currentRecipe.vegetarian == "yes" ? <div className={styles.tagsDiv}>Vegetarian</div> : <></>}
+                {currentRecipe.highProtein == "yes" ? <div className={styles.tagsDiv}>High Protein</div> : <></>}
+                {currentRecipe.glutenFree == "yes" ? <div className={styles.tagsDiv}>Gluten Free</div> : <></>}
+                {currentRecipe.lowSugar == "yes" ? <div className={styles.tagsDiv}>Low Sugar</div> : <></>}
+                {currentRecipe.lactoseFree == "yes" ? <div className={styles.tagsDiv}>Lactose Free</div> : <></>}
+            </div>
+
             <div className={styles.detailsItemContainer}>
                 <h2>{currentRecipe.title}</h2>
                 <img className={styles.detailsImg} src={currentRecipe.imageUrl} />

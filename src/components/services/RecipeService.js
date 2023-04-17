@@ -9,8 +9,6 @@ export const createNewRecipe = async (recipeData) => {
     // addDoc - Cloud Firestore auto-generate an ID 
     const resultData = await addDoc(collection(db, collectionName), recipeData);
 
-    console.log("Document written with ID: ", resultData.id);
-
     return resultData;
 };
 
@@ -103,3 +101,5 @@ export const deleteRecipe = async (recipeId) => {
 
 
 //TODO: check if everything is in tryCatch
+
+//TODO: errors -> alert??

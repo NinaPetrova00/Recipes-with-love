@@ -15,8 +15,10 @@ Logged-in users can see all the recipes that they have created in one page.
 Author/Creator can edit or delete his own recipes.
 
 ## Technology stack
-![Firebase_Logo](https://user-images.githubusercontent.com/57937530/232789614-f9db1b52-618a-408c-abb6-f416ee5c0c93.png = 250x250)
-![React_logo](https://user-images.githubusercontent.com/57937530/232789955-d7e59f78-45fd-489a-85da-d98b179a3cf2.png =250x250)
+![Firebase_Logo](https://user-images.githubusercontent.com/57937530/232789614-f9db1b52-618a-408c-abb6-f416ee5c0c93.png)
+![React_logo](https://user-images.githubusercontent.com/57937530/232789955-d7e59f78-45fd-489a-85da-d98b179a3cf2.png)
+<img src="https://user-images.githubusercontent.com/57937530/232789614-f9db1b52-618a-408c-abb6-f416ee5c0c93.png" width="50" height="50">
+<img src="https://user-images.githubusercontent.com/57937530/232789955-d7e59f78-45fd-489a-85da-d98b179a3cf2.png" width="100" height="100">
 ## Available Scripts
 
 

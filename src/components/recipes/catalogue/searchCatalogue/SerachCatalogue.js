@@ -40,7 +40,7 @@ export const SearchCatalogue = () => {
     };
 
     let resultRecipes = allRecipes.filter(recipe =>
-        recipe.title.toLowerCase().includes(searchData));
+        recipe.title.toLowerCase().includes(searchData.toLowerCase()));
 
     return (
         <>

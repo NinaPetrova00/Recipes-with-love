@@ -1,16 +1,19 @@
 # Recipes with love 
 'Recipes with love' is web application, where people can find special (non traditional) recipes such as vegan, gluten free, lactose free etc. The main idea for the project is that in this website people with specific needs will find recipes, that they and their health will love!
 
+![1](https://user-images.githubusercontent.com/57937530/232795279-a846cbb5-ad22-47da-a08f-f9965824660e.jpg)
+
+![2](https://user-images.githubusercontent.com/57937530/232795307-1d22c6bc-24b2-4676-b440-3829c83a851c.jpg)
+
+![3](https://user-images.githubusercontent.com/57937530/232795464-9c04a6ce-c5c2-48af-91d0-b5ca32ab506a.jpg)
+
+![4](https://user-images.githubusercontent.com/57937530/232795489-a27aedee-f0ed-4dbe-b240-d38001934f3b.jpg)
 
 ## Public part
 This part is accessible without authentication. 
 All users can view the recipes sorted in 6 different categories - vegan, vegetarian, high protein, low sugar, gluten free, lactose free. Search by recipe's name is also available. 
 All users can open every single recipe's details and see the ingredients needed for the recipe, cooking time and cooking steps. 
 Guests can create profile or log in to their account if they have one.
-![1](https://user-images.githubusercontent.com/57937530/232795279-a846cbb5-ad22-47da-a08f-f9965824660e.jpg)
-![2](https://user-images.githubusercontent.com/57937530/232795307-1d22c6bc-24b2-4676-b440-3829c83a851c.jpg)
-![3](https://user-images.githubusercontent.com/57937530/232795464-9c04a6ce-c5c2-48af-91d0-b5ca32ab506a.jpg)
-![4](https://user-images.githubusercontent.com/57937530/232795489-a27aedee-f0ed-4dbe-b240-d38001934f3b.jpg)
 
 ## Private part
 Logged-in users can create recipes and leave comments below other people's recipes. 

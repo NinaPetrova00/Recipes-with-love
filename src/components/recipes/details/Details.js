@@ -78,7 +78,6 @@ export const Details = () => {
                 <div className={styles.ingredientsContainer}>
                     <h3>Ingredients:</h3>
                     <ul>
-                        {/* {currentRecipe.ingredients?.map(x => <li>{x}</li>)} */}
                         {(currentRecipe.ingredients?.split(/\r?\n/).map(x => <li>{x}</li>))}
                     </ul>
                 </div>
@@ -86,7 +85,6 @@ export const Details = () => {
                 <div className={styles.howToContainer}>
                     <h3>How to prerate it:</h3>
                     <ul>
-                        {/* {currentRecipe.cookingSteps?.map(x => <li>{x}</li>)} */}
                         {(currentRecipe.cookingSteps?.split(/\r?\n/).map(x => <li>{x}</li>))}
                     </ul>
                 </div>
@@ -106,7 +104,7 @@ export const Details = () => {
                             </>
                         : <p>
                             To add comment,
-                            please <Link to="/login">login</Link> or <Link to="/register">register</Link>!
+                            please <Link to="/login">login</Link> or <Link to="/register">register</Link> !
                         </p>
                     }
                 </div>

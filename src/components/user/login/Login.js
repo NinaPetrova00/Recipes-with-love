@@ -1,4 +1,4 @@
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import styles from "./Login.module.css";
 import * as authService from '../../services/AuthService';
 
@@ -28,7 +28,7 @@ export const Login = () => {
 
                 <p>
                     Don't have an account?
-                    <Link to="/register"> Register here</Link>
+                    <Link to="/register">Register here</Link>
                 </p>
 
                 <div>
@@ -36,7 +36,6 @@ export const Login = () => {
                         type="submit"
                         className={styles.loginbtn}
                         name="login"
-                    // onClick={loginHandler} 
                     >
                         Login
                     </button>

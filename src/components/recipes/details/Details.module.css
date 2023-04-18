@@ -82,9 +82,18 @@
     background-color: #a8c3df9e;
 }
 
+.userComment p {
+    font-family: 'Alkatra';
+    font-size: 23px;
+}
+
+.userComment p a {
+    text-decoration: revert;
+    color: #e36060
+}
+
 .userComment .userIsAuthor {
     color: #ff0000b8;
-
 }
 
 .userComment button {

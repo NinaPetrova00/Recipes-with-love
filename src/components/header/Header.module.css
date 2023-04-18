@@ -11,7 +11,7 @@
 .customContainerUser a:hover,
 .customContainerNoUser a:hover {
     background-color: #cee6f4;
-    border-radius: 10%;
+    border-radius: 15px;
 }
 
 .usernameContainer::before,

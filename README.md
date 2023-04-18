@@ -1,13 +1,17 @@
 # Recipes with love 
 'Recipes with love' is web application, where people can find special (non traditional) recipes such as vegan, gluten free, lactose free etc. The main idea for the project is that in this website people with specific needs will find recipes, that they and their health will love!
 
+### *Home Page*
 ![1](https://user-images.githubusercontent.com/57937530/232795279-a846cbb5-ad22-47da-a08f-f9965824660e.jpg)
 
+### *Vegan catalogue*
 ![2](https://user-images.githubusercontent.com/57937530/232795307-1d22c6bc-24b2-4676-b440-3829c83a851c.jpg)
 
+### *Recipe details*
 ![3](https://user-images.githubusercontent.com/57937530/232795464-9c04a6ce-c5c2-48af-91d0-b5ca32ab506a.jpg)
 
-![4](https://user-images.githubusercontent.com/57937530/232795489-a27aedee-f0ed-4dbe-b240-d38001934f3b.jpg)
+### *Recipe comments*
+![4](https://user-images.githubusercontent.com/57937530/232796525-0df764f8-4fca-41c6-9d17-2ede3f4e4b1f.jpg)
 
 ## Public part
 This part is accessible without authentication. 
@@ -26,8 +30,6 @@ Author/Creator can edit or delete his own recipes.
 ![Screenshot](https://user-images.githubusercontent.com/57937530/232793838-71149250-d2dc-4f35-b49c-2a999afba576.jpg)
 
 ## Available Scripts
-
-
 In the project directory, you can run:
 
 ### `npm start`

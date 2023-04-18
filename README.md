@@ -13,6 +13,7 @@
 ### *Recipe comments*
 ![4](https://user-images.githubusercontent.com/57937530/232796525-0df764f8-4fca-41c6-9d17-2ede3f4e4b1f.jpg)
 
+#
 ## Public part
 This part is accessible without authentication. 
 All users can view the recipes sorted in 6 different categories - vegan, vegetarian, high protein, low sugar, gluten free, lactose free. Search by recipe's name is also available. 

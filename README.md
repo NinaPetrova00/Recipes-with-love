@@ -1,6 +1,6 @@
 # Recipes with love 
 'Recipes with love' is web application, where people can find special (non traditional) recipes such as vegan, gluten free, lactose free etc. The main idea for the project is that in this website people with specific needs will find recipes, that they and their health will love!
-
+ # 
 ### *Home Page*
 ![1](https://user-images.githubusercontent.com/57937530/232795279-a846cbb5-ad22-47da-a08f-f9965824660e.jpg)
 

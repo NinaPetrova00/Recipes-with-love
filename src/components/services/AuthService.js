@@ -6,7 +6,6 @@ export const register = async (email, password) => {
         const user = await createUserWithEmailAndPassword(auth, email, password);
     } catch (error) {
         const errorCode = error.code.split("auth/")[1];
-        //alert(error.message);
         alert(errorCode);
     }
 };

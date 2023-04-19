@@ -4,7 +4,6 @@ import { db } from "../../config/firebase";
 const collectionName = "comments";
 
 // CREATE
-//TODO should it be try-catch?
 export const addComment = async (userId, userEmail, recipeId, commentText) => {
 
     // addDoc - Cloud Firestore auto-generate an ID 
@@ -38,6 +37,3 @@ export const getCurrentRecipeComments = async (recipeId) => {
 
     }
 };
-
-
-//TODO: check if everything is in tryCatch

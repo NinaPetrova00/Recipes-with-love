@@ -17,7 +17,7 @@ export const UserRecipes = () => {
                     setUserRecipes(result));
         }
     });
-    //TODO: loader/spinner
+    
     return (
         <>
             {userRecipes.length > 0

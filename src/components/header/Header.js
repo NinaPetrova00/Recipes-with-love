@@ -25,7 +25,6 @@ export const Header = () => {
 
 
     return (
-        //TODO: change font-family maybe?
         <Navbar bg="light" expand="lg" className={styles.navbar}>
             <Container fluid>
                 <Nav

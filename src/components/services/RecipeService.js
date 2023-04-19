@@ -98,8 +98,3 @@ export const deleteRecipe = async (recipeId) => {
 
     await deleteDoc(recipeDoc);
 }
-
-
-//TODO: check if everything is in tryCatch
-
-//TODO: errors -> alert??

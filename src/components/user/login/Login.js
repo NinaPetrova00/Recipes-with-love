@@ -12,7 +12,6 @@ export const Login = () => {
 
         authService.login(email, password);
         navigate('/');
-        //TODO: don't redirect if login is failed
     };
 
     return (

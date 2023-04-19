@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import PropagateLoader from "react-spinners/PropagateLoader";
 import styles from '../Catalogue.module.css';
 import * as recipeService from "../../../services/RecipeService";
 import { CatalogueItem } from '../catalogue-item/CatalogueItem';
@@ -7,7 +6,6 @@ import { CatalogueItem } from '../catalogue-item/CatalogueItem';
 
 export const SearchCatalogue = () => {
     const [allRecipes, setAllRecipes] = useState([]);
-    const [loadingSpinner, setLoadingSpinner] = useState(false);
     const [searchData, setSerachData] = useState("");
     const [isClicked, setIsClicked] = useState(false);
 
@@ -16,19 +14,6 @@ export const SearchCatalogue = () => {
             .then(result =>
                 setAllRecipes(result));
     }, []);
-
-
-    //TODO: set loading spinner
-    // useEffect(() => {
-    //     setLoadingSpinner(true);
-    //     if (searchData != undefined) {
-
-    //     }
-
-    //     setTimeout(() => {
-    //         setLoadingSpinner(false);
-    //     }, 1000); //1sec
-    // }, []);
 
 
     const onSubmitHandler = (ev) => {
@@ -44,7 +29,6 @@ export const SearchCatalogue = () => {
 
     return (
         <>
-
             <form onSubmit={onSubmitHandler} className={styles.searchForm}>
                 <h2>What are you looking for?</h2>
                 <input
@@ -56,34 +40,17 @@ export const SearchCatalogue = () => {
                 <button>Search</button>
             </form>
 
-
             {isClicked
-                ? loadingSpinner
-                    ? <div className={styles.loadingSpinner}>
-                        <h1>Loading</h1>
-                        <PropagateLoader
-                            color={"#7c94ac"}
-                            loading={loadingSpinner}
-                            size={30}
-                        />
-                    </div>
-                    : <div className={styles.catalogue}>
-                        {resultRecipes?.length > 0
-                            ? resultRecipes.map(x => <CatalogueItem key={x.id} recipe={x} />)
-                            : <div className={styles.noResults}>
+                ? <div className={styles.catalogue}>
+                    {resultRecipes?.length > 0
+                        ? resultRecipes.map(x => <CatalogueItem key={x.id} recipe={x} />)
+                        : <div className={styles.noResults}>
 
-                                <h2>  <img src={process.env.PUBLIC_URL + '/images/notFoundIcon.png'} />  No results!</h2>
-                            </div>
-                        }
-                    </div>
-                : <>
-                </>
-                // : <div className={styles.noResults}>
-
-                //     <h2>Results will appear here!</h2>
-                // </div>
-
-
+                            <h2>  <img src={process.env.PUBLIC_URL + '/images/notFoundIcon.png'} />  No results!</h2>
+                        </div>
+                    }
+                </div>
+                : <> </>
             }
         </>
     );

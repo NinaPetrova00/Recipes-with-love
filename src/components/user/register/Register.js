@@ -17,8 +17,6 @@ export const Register = () => {
         }
 
         authService.register(email, password);
-        //TODO: redirect to home only if it is succesfull
-
         navigate('/')
     }
 

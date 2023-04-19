@@ -18,11 +18,11 @@ export const Delete = () => {
 
     const onDeleteHandler = () => {
         recipeService.deleteRecipe(recipeId);
-        navigate('/');
+        navigate('/catalogue/myRecipes');
     };
 
     const onCancelHandler = () => {
-        navigate('/');
+        navigate('/catalogue/myRecipes');
     };
 
     return (
